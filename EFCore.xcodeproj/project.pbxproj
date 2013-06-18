@@ -1,0 +1,861 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		2CF6AC80176F892D002379EA /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2CF6AC81176F892D002379EA /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				2CF6AC86176F897A002379EA /* Build Framework */,
+			);
+			dependencies = (
+				2CF6AC85176F8943002379EA /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2CF6AB06176F7654002379EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AB05176F7654002379EA /* Foundation.framework */; };
+		2CF6AC21176F77BD002379EA /* EFNotificationGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABB3176F77BD002379EA /* EFNotificationGenerator.m */; };
+		2CF6AC27176F77BD002379EA /* EFFibonacciGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC0176F77BD002379EA /* EFFibonacciGenerator.m */; };
+		2CF6AC28176F77BD002379EA /* EFViewTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC2176F77BD002379EA /* EFViewTagManager.m */; };
+		2CF6AC29176F77BD002379EA /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC6176F77BD002379EA /* NSData+AES.m */; };
+		2CF6AC2A176F77BD002379EA /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC8176F77BD002379EA /* NSString+AES.m */; };
+		2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */; };
+		2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCE176F77BD002379EA /* NSString+Search.m */; };
+		2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */; };
+		2CF6AC2E176F77BD002379EA /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */; };
+		2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */; };
+		2CF6AC30176F77BD002379EA /* UIImage+Edit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDA176F77BD002379EA /* UIImage+Edit.m */; };
+		2CF6AC31176F77BD002379EA /* UIImage+Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDC176F77BD002379EA /* UIImage+Save.m */; };
+		2CF6AC32176F77BD002379EA /* UIImageView+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */; };
+		2CF6AC33176F77BD002379EA /* UIView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */; };
+		2CF6AC34176F77BD002379EA /* EFPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE5176F77BD002379EA /* EFPriorityQueue.m */; };
+		2CF6AC35176F77BD002379EA /* EFSynchronizedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE9176F77BD002379EA /* EFSynchronizedQueue.m */; };
+		2CF6AC36176F77BD002379EA /* EFKeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABEB176F77BD002379EA /* EFKeyValuePair.m */; };
+		2CF6AC38176F77BD002379EA /* EFSQLiteContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABF0176F77BD002379EA /* EFSQLiteContext.m */; };
+		2CF6AC39176F77BD002379EA /* EFSQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABF2176F77BD002379EA /* EFSQLiteHelper.m */; };
+		2CF6AC3A176F77BD002379EA /* EFSQLiteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABF4176F77BD002379EA /* EFSQLiteObject.m */; };
+		2CF6AC3B176F77BD002379EA /* EFGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABF7176F77BD002379EA /* EFGraphics.m */; };
+		2CF6AC3C176F77BD002379EA /* EFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABF9176F77BD002379EA /* EFImageCache.m */; };
+		2CF6AC3D176F77BD002379EA /* EFRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABFB176F77BD002379EA /* EFRuntime.m */; };
+		2CF6AC3E176F77BD002379EA /* EFSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABFE176F77BD002379EA /* EFSecurity.m */; };
+		2CF6AC41176F77BD002379EA /* EFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC06176F77BD002379EA /* EFButton.m */; };
+		2CF6AC42176F77BD002379EA /* EFImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC08176F77BD002379EA /* EFImageButton.m */; };
+		2CF6AC43176F77BD002379EA /* EFUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC0A176F77BD002379EA /* EFUITextField.m */; };
+		2CF6AC44176F77BD002379EA /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC0D176F77BD002379EA /* GTMBase64.m */; };
+		2CF6AC45176F77BD002379EA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC10176F77BD002379EA /* JRSwizzle.m */; };
+		2CF6AC46176F77BD002379EA /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC12176F77BD002379EA /* MD5.m */; };
+		2CF6AC48176F77BD002379EA /* Pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC15176F77BD002379EA /* Pinyin.c */; };
+		2CF6AC4B176F77BD002379EA /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */; };
+		2CF6AC52176F7977002379EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AC4D176F794B002379EA /* CoreGraphics.framework */; };
+		2CF6AC54176F7A77002379EA /* EFNotificationGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABB2176F77BD002379EA /* EFNotificationGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC55176F7A7F002379EA /* EFFibonacciGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABBF176F77BD002379EA /* EFFibonacciGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC56176F7A82002379EA /* EFViewTagManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC1176F77BD002379EA /* EFViewTagManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC57176F7ACC002379EA /* NSDateFormatter+Extended.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC58176F7ACE002379EA /* NSString+AES.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC7176F77BD002379EA /* NSString+AES.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC5176F77BD002379EA /* NSData+AES.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABCD176F77BD002379EA /* NSString+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5B176F7ADC002379EA /* NSURL+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5C176F7AE1002379EA /* SKProduct+LocalizedPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5D176F7AE5002379EA /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD6176F77BD002379EA /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5E176F7AEA002379EA /* UIImage+Edit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD9176F77BD002379EA /* UIImage+Edit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC5F176F7AEB002379EA /* UIImage+Save.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABDB176F77BD002379EA /* UIImage+Save.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC60176F7AF1002379EA /* UIImageView+Transition.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC61176F7AF3002379EA /* UIView+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC62176F7B00002379EA /* EFComparable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE3176F77BD002379EA /* EFComparable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC63176F7B01002379EA /* EFPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE4176F77BD002379EA /* EFPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC64176F7B03002379EA /* EFQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE6176F77BD002379EA /* EFQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC65176F7B05002379EA /* EFQueueExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE7176F77BD002379EA /* EFQueueExtended.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC66176F7B06002379EA /* EFSynchronizedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE8176F77BD002379EA /* EFSynchronizedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC67176F7B08002379EA /* EFKeyValuePair.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABEA176F77BD002379EA /* EFKeyValuePair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC69176F7B10002379EA /* EFSQLiteContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABEF176F77BD002379EA /* EFSQLiteContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6A176F7B11002379EA /* EFSQLiteHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABF1176F77BD002379EA /* EFSQLiteHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6B176F7B13002379EA /* EFSQLiteObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABF3176F77BD002379EA /* EFSQLiteObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6C176F7B18002379EA /* EFGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABF6176F77BD002379EA /* EFGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6D176F7B1A002379EA /* EFImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABF8176F77BD002379EA /* EFImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6E176F7B1E002379EA /* EFRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABFA176F77BD002379EA /* EFRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC6F176F7B21002379EA /* EFSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABFD176F77BD002379EA /* EFSecurity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC72176F7B2B002379EA /* EFButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC05176F77BD002379EA /* EFButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC73176F7B2D002379EA /* EFImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC07176F77BD002379EA /* EFImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC74176F7B2F002379EA /* EFUITextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC09176F77BD002379EA /* EFUITextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC75176F7B36002379EA /* GTMBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0C176F77BD002379EA /* GTMBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC76176F7B38002379EA /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0E176F77BD002379EA /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC77176F7B3A002379EA /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0F176F77BD002379EA /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC78176F7B3F002379EA /* MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC11176F77BD002379EA /* MD5.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC7A176F7B43002379EA /* Pinyin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC16176F77BD002379EA /* Pinyin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC7B176F7B44002379EA /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC1C176F77BD002379EA /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AC4F176F7956002379EA /* UIKit.framework */; };
+		2CF6AC95176F8DB2002379EA /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8B176F8DB2002379EA /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC96176F8DB2002379EA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC8C176F8DB2002379EA /* FMDatabase.m */; };
+		2CF6AC97176F8DB2002379EA /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC98176F8DB2002379EA /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */; };
+		2CF6AC99176F8DB2002379EA /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC9A176F8DB2002379EA /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */; };
+		2CF6AC9B176F8DB2002379EA /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC9C176F8DB2002379EA /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */; };
+		2CF6AC9D176F8DB2002379EA /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC93176F8DB2002379EA /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC9E176F8DB2002379EA /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC94176F8DB2002379EA /* FMResultSet.m */; };
+		2CF6ACBC1770133C002379EA /* EFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB0A176F7654002379EA /* EFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
+		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F37168715D7D49028E6B /* EFEventHandlerList.m */; };
+		9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */; };
+		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2CF6AC84176F8943002379EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CF6AAFA176F7654002379EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CF6AB01176F7654002379EA;
+			remoteInfo = EFCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2CF6AB02176F7654002379EA /* libEFCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEFCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CF6AB05176F7654002379EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFCore-Prefix.pch"; sourceTree = "<group>"; };
+		2CF6AB0A176F7654002379EA /* EFCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFCore.h; sourceTree = "<group>"; };
+		2CF6ABB2176F77BD002379EA /* EFNotificationGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFNotificationGenerator.h; sourceTree = "<group>"; };
+		2CF6ABB3176F77BD002379EA /* EFNotificationGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFNotificationGenerator.m; sourceTree = "<group>"; };
+		2CF6ABBF176F77BD002379EA /* EFFibonacciGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFibonacciGenerator.h; sourceTree = "<group>"; };
+		2CF6ABC0176F77BD002379EA /* EFFibonacciGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFibonacciGenerator.m; sourceTree = "<group>"; };
+		2CF6ABC1176F77BD002379EA /* EFViewTagManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFViewTagManager.h; sourceTree = "<group>"; };
+		2CF6ABC2176F77BD002379EA /* EFViewTagManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFViewTagManager.m; sourceTree = "<group>"; };
+		2CF6ABC5176F77BD002379EA /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
+		2CF6ABC6176F77BD002379EA /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
+		2CF6ABC7176F77BD002379EA /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
+		2CF6ABC8176F77BD002379EA /* NSString+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES.m"; sourceTree = "<group>"; };
+		2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Extended.h"; sourceTree = "<group>"; };
+		2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Extended.m"; sourceTree = "<group>"; };
+		2CF6ABCD176F77BD002379EA /* NSString+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Search.h"; sourceTree = "<group>"; };
+		2CF6ABCE176F77BD002379EA /* NSString+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Search.m"; sourceTree = "<group>"; };
+		2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Additions.h"; sourceTree = "<group>"; };
+		2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Additions.m"; sourceTree = "<group>"; };
+		2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
+		2CF6ABD6176F77BD002379EA /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		2CF6ABD9176F77BD002379EA /* UIImage+Edit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Edit.h"; sourceTree = "<group>"; };
+		2CF6ABDA176F77BD002379EA /* UIImage+Edit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Edit.m"; sourceTree = "<group>"; };
+		2CF6ABDB176F77BD002379EA /* UIImage+Save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Save.h"; sourceTree = "<group>"; };
+		2CF6ABDC176F77BD002379EA /* UIImage+Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Save.m"; sourceTree = "<group>"; };
+		2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Transition.h"; sourceTree = "<group>"; };
+		2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Transition.m"; sourceTree = "<group>"; };
+		2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Reflection.h"; sourceTree = "<group>"; };
+		2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Reflection.m"; sourceTree = "<group>"; };
+		2CF6ABE3176F77BD002379EA /* EFComparable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFComparable.h; sourceTree = "<group>"; };
+		2CF6ABE4176F77BD002379EA /* EFPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFPriorityQueue.h; sourceTree = "<group>"; };
+		2CF6ABE5176F77BD002379EA /* EFPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFPriorityQueue.m; sourceTree = "<group>"; };
+		2CF6ABE6176F77BD002379EA /* EFQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFQueue.h; sourceTree = "<group>"; };
+		2CF6ABE7176F77BD002379EA /* EFQueueExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFQueueExtended.h; sourceTree = "<group>"; };
+		2CF6ABE8176F77BD002379EA /* EFSynchronizedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSynchronizedQueue.h; sourceTree = "<group>"; };
+		2CF6ABE9176F77BD002379EA /* EFSynchronizedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSynchronizedQueue.m; sourceTree = "<group>"; };
+		2CF6ABEA176F77BD002379EA /* EFKeyValuePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFKeyValuePair.h; sourceTree = "<group>"; };
+		2CF6ABEB176F77BD002379EA /* EFKeyValuePair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFKeyValuePair.m; sourceTree = "<group>"; };
+		2CF6ABEF176F77BD002379EA /* EFSQLiteContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSQLiteContext.h; sourceTree = "<group>"; };
+		2CF6ABF0176F77BD002379EA /* EFSQLiteContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSQLiteContext.m; sourceTree = "<group>"; };
+		2CF6ABF1176F77BD002379EA /* EFSQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSQLiteHelper.h; sourceTree = "<group>"; };
+		2CF6ABF2176F77BD002379EA /* EFSQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSQLiteHelper.m; sourceTree = "<group>"; };
+		2CF6ABF3176F77BD002379EA /* EFSQLiteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSQLiteObject.h; sourceTree = "<group>"; };
+		2CF6ABF4176F77BD002379EA /* EFSQLiteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSQLiteObject.m; sourceTree = "<group>"; };
+		2CF6ABF6176F77BD002379EA /* EFGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFGraphics.h; sourceTree = "<group>"; };
+		2CF6ABF7176F77BD002379EA /* EFGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFGraphics.m; sourceTree = "<group>"; };
+		2CF6ABF8176F77BD002379EA /* EFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFImageCache.h; sourceTree = "<group>"; };
+		2CF6ABF9176F77BD002379EA /* EFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFImageCache.m; sourceTree = "<group>"; };
+		2CF6ABFA176F77BD002379EA /* EFRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFRuntime.h; sourceTree = "<group>"; };
+		2CF6ABFB176F77BD002379EA /* EFRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFRuntime.m; sourceTree = "<group>"; };
+		2CF6ABFD176F77BD002379EA /* EFSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFSecurity.h; sourceTree = "<group>"; };
+		2CF6ABFE176F77BD002379EA /* EFSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSecurity.m; sourceTree = "<group>"; };
+		2CF6AC05176F77BD002379EA /* EFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFButton.h; sourceTree = "<group>"; };
+		2CF6AC06176F77BD002379EA /* EFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFButton.m; sourceTree = "<group>"; };
+		2CF6AC07176F77BD002379EA /* EFImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFImageButton.h; sourceTree = "<group>"; };
+		2CF6AC08176F77BD002379EA /* EFImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFImageButton.m; sourceTree = "<group>"; };
+		2CF6AC09176F77BD002379EA /* EFUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFUITextField.h; sourceTree = "<group>"; };
+		2CF6AC0A176F77BD002379EA /* EFUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFUITextField.m; sourceTree = "<group>"; };
+		2CF6AC0C176F77BD002379EA /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		2CF6AC0D176F77BD002379EA /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		2CF6AC0E176F77BD002379EA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		2CF6AC0F176F77BD002379EA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		2CF6AC10176F77BD002379EA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		2CF6AC11176F77BD002379EA /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
+		2CF6AC12176F77BD002379EA /* MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5.m; sourceTree = "<group>"; };
+		2CF6AC15176F77BD002379EA /* Pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Pinyin.c; sourceTree = "<group>"; };
+		2CF6AC16176F77BD002379EA /* Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pinyin.h; sourceTree = "<group>"; };
+		2CF6AC1C176F77BD002379EA /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		2CF6AC4D176F794B002379EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2CF6AC7F176F8181002379EA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		2CF6AC88176F8DB2002379EA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		2CF6AC89176F8DB2002379EA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		2CF6AC8B176F8DB2002379EA /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		2CF6AC8C176F8DB2002379EA /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		2CF6AC93176F8DB2002379EA /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		2CF6AC94176F8DB2002379EA /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		593BE694655C4B68BDB6F3FC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
+		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
+		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
+		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
+		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
+		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CF6AAFF176F7654002379EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF6AB06176F7654002379EA /* Foundation.framework in Frameworks */,
+				2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */,
+				2CF6AC52176F7977002379EA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CF6AAF9176F7654002379EA = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC7F176F8181002379EA /* Podfile */,
+				2CF6AB07176F7654002379EA /* EFCore */,
+				2CF6AB04176F7654002379EA /* Frameworks */,
+				2CF6AB03176F7654002379EA /* Products */,
+				593BE694655C4B68BDB6F3FC /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		2CF6AB03176F7654002379EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AB02176F7654002379EA /* libEFCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CF6AB04176F7654002379EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC4F176F7956002379EA /* UIKit.framework */,
+				2CF6AC4D176F794B002379EA /* CoreGraphics.framework */,
+				2CF6AB05176F7654002379EA /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CF6AB07176F7654002379EA /* EFCore */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC87176F8DB2002379EA /* FMDB */,
+				2CF6AB14176F7713002379EA /* Classes */,
+				2CF6AB0A176F7654002379EA /* EFCore.h */,
+				2CF6AB08176F7654002379EA /* Supporting Files */,
+			);
+			path = EFCore;
+			sourceTree = "<group>";
+		};
+		2CF6AB08176F7654002379EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CF6AB14176F7713002379EA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABB1176F77BD002379EA /* EFApplication */,
+				2CF6ABC3176F77BD002379EA /* EFCategory */,
+				2CF6ABE2176F77BD002379EA /* EFCollection */,
+				2CF6ABEE176F77BD002379EA /* EFData */,
+				2CF6ABF5176F77BD002379EA /* EFGraphics */,
+				2CF6ABFA176F77BD002379EA /* EFRuntime.h */,
+				2CF6ABFB176F77BD002379EA /* EFRuntime.m */,
+				2CF6ABFC176F77BD002379EA /* EFSecurity */,
+				2CF6AC04176F77BD002379EA /* EFView */,
+				2CF6AC0B176F77BD002379EA /* ThirdParty */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2CF6ABB1176F77BD002379EA /* EFApplication */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABB2176F77BD002379EA /* EFNotificationGenerator.h */,
+				2CF6ABB3176F77BD002379EA /* EFNotificationGenerator.m */,
+				2CF6ABBF176F77BD002379EA /* EFFibonacciGenerator.h */,
+				2CF6ABC0176F77BD002379EA /* EFFibonacciGenerator.m */,
+				2CF6ABC1176F77BD002379EA /* EFViewTagManager.h */,
+				2CF6ABC2176F77BD002379EA /* EFViewTagManager.m */,
+				9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */,
+				9D88F37168715D7D49028E6B /* EFEventHandlerList.m */,
+			);
+			path = EFApplication;
+			sourceTree = "<group>";
+		};
+		2CF6ABC3176F77BD002379EA /* EFCategory */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABC4176F77BD002379EA /* Encryption */,
+				2CF6ABC9176F77BD002379EA /* NSDate */,
+				2CF6ABCC176F77BD002379EA /* NSString */,
+				2CF6ABCF176F77BD002379EA /* NSURL */,
+				2CF6ABD2176F77BD002379EA /* StoreKit */,
+				2CF6ABD5176F77BD002379EA /* UIColor */,
+				2CF6ABD8176F77BD002379EA /* UIImage */,
+				2CF6ABDD176F77BD002379EA /* UIView */,
+				9D88FE4E01FFE832E586BFCC /* NSCache */,
+				9D88F4C32164636B6C89D038 /* NSFileManager */,
+			);
+			path = EFCategory;
+			sourceTree = "<group>";
+		};
+		2CF6ABC4176F77BD002379EA /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABC5176F77BD002379EA /* NSData+AES.h */,
+				2CF6ABC6176F77BD002379EA /* NSData+AES.m */,
+				2CF6ABC7176F77BD002379EA /* NSString+AES.h */,
+				2CF6ABC8176F77BD002379EA /* NSString+AES.m */,
+			);
+			path = Encryption;
+			sourceTree = "<group>";
+		};
+		2CF6ABC9176F77BD002379EA /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */,
+				2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		2CF6ABCC176F77BD002379EA /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABCD176F77BD002379EA /* NSString+Search.h */,
+				2CF6ABCE176F77BD002379EA /* NSString+Search.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		2CF6ABCF176F77BD002379EA /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */,
+				2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */,
+			);
+			path = NSURL;
+			sourceTree = "<group>";
+		};
+		2CF6ABD2176F77BD002379EA /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */,
+				2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */,
+			);
+			path = StoreKit;
+			sourceTree = "<group>";
+		};
+		2CF6ABD5176F77BD002379EA /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABD6176F77BD002379EA /* UIColor+Hex.h */,
+				2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		2CF6ABD8176F77BD002379EA /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABD9176F77BD002379EA /* UIImage+Edit.h */,
+				2CF6ABDA176F77BD002379EA /* UIImage+Edit.m */,
+				2CF6ABDB176F77BD002379EA /* UIImage+Save.h */,
+				2CF6ABDC176F77BD002379EA /* UIImage+Save.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		2CF6ABDD176F77BD002379EA /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */,
+				2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */,
+				2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */,
+				2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		2CF6ABE2176F77BD002379EA /* EFCollection */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABE3176F77BD002379EA /* EFComparable.h */,
+				2CF6ABE4176F77BD002379EA /* EFPriorityQueue.h */,
+				2CF6ABE5176F77BD002379EA /* EFPriorityQueue.m */,
+				2CF6ABE6176F77BD002379EA /* EFQueue.h */,
+				2CF6ABE7176F77BD002379EA /* EFQueueExtended.h */,
+				2CF6ABE8176F77BD002379EA /* EFSynchronizedQueue.h */,
+				2CF6ABE9176F77BD002379EA /* EFSynchronizedQueue.m */,
+				2CF6ABEA176F77BD002379EA /* EFKeyValuePair.h */,
+				2CF6ABEB176F77BD002379EA /* EFKeyValuePair.m */,
+			);
+			path = EFCollection;
+			sourceTree = "<group>";
+		};
+		2CF6ABEE176F77BD002379EA /* EFData */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABEF176F77BD002379EA /* EFSQLiteContext.h */,
+				2CF6ABF0176F77BD002379EA /* EFSQLiteContext.m */,
+				2CF6ABF1176F77BD002379EA /* EFSQLiteHelper.h */,
+				2CF6ABF2176F77BD002379EA /* EFSQLiteHelper.m */,
+				2CF6ABF3176F77BD002379EA /* EFSQLiteObject.h */,
+				2CF6ABF4176F77BD002379EA /* EFSQLiteObject.m */,
+			);
+			path = EFData;
+			sourceTree = "<group>";
+		};
+		2CF6ABF5176F77BD002379EA /* EFGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABF6176F77BD002379EA /* EFGraphics.h */,
+				2CF6ABF7176F77BD002379EA /* EFGraphics.m */,
+				2CF6ABF8176F77BD002379EA /* EFImageCache.h */,
+				2CF6ABF9176F77BD002379EA /* EFImageCache.m */,
+			);
+			path = EFGraphics;
+			sourceTree = "<group>";
+		};
+		2CF6ABFC176F77BD002379EA /* EFSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6ABFD176F77BD002379EA /* EFSecurity.h */,
+				2CF6ABFE176F77BD002379EA /* EFSecurity.m */,
+			);
+			path = EFSecurity;
+			sourceTree = "<group>";
+		};
+		2CF6AC04176F77BD002379EA /* EFView */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC05176F77BD002379EA /* EFButton.h */,
+				2CF6AC06176F77BD002379EA /* EFButton.m */,
+				2CF6AC07176F77BD002379EA /* EFImageButton.h */,
+				2CF6AC08176F77BD002379EA /* EFImageButton.m */,
+				2CF6AC09176F77BD002379EA /* EFUITextField.h */,
+				2CF6AC0A176F77BD002379EA /* EFUITextField.m */,
+			);
+			path = EFView;
+			sourceTree = "<group>";
+		};
+		2CF6AC0B176F77BD002379EA /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC0C176F77BD002379EA /* GTMBase64.h */,
+				2CF6AC0D176F77BD002379EA /* GTMBase64.m */,
+				2CF6AC0E176F77BD002379EA /* GTMDefines.h */,
+				2CF6AC0F176F77BD002379EA /* JRSwizzle.h */,
+				2CF6AC10176F77BD002379EA /* JRSwizzle.m */,
+				2CF6AC11176F77BD002379EA /* MD5.h */,
+				2CF6AC12176F77BD002379EA /* MD5.m */,
+				2CF6AC15176F77BD002379EA /* Pinyin.c */,
+				2CF6AC16176F77BD002379EA /* Pinyin.h */,
+				2CF6AC1C176F77BD002379EA /* SFHFKeychainUtils.h */,
+				2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		2CF6AC87176F8DB2002379EA /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC88176F8DB2002379EA /* LICENSE.txt */,
+				2CF6AC89176F8DB2002379EA /* README.markdown */,
+				2CF6AC8A176F8DB2002379EA /* src */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		2CF6AC8A176F8DB2002379EA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2CF6AC8B176F8DB2002379EA /* FMDatabase.h */,
+				2CF6AC8C176F8DB2002379EA /* FMDatabase.m */,
+				2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */,
+				2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */,
+				2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */,
+				2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */,
+				2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */,
+				2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */,
+				2CF6AC93176F8DB2002379EA /* FMResultSet.h */,
+				2CF6AC94176F8DB2002379EA /* FMResultSet.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		9D88F4C32164636B6C89D038 /* NSFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */,
+				9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */,
+			);
+			path = NSFileManager;
+			sourceTree = "<group>";
+		};
+		9D88FE4E01FFE832E586BFCC /* NSCache */ = {
+			isa = PBXGroup;
+			children = (
+				9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */,
+				9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */,
+			);
+			name = NSCache;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2CF6AC53176F7A47002379EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF6AC54176F7A77002379EA /* EFNotificationGenerator.h in Headers */,
+				2CF6AC57176F7ACC002379EA /* NSDateFormatter+Extended.h in Headers */,
+				2CF6AC55176F7A7F002379EA /* EFFibonacciGenerator.h in Headers */,
+				2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */,
+				2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */,
+				2CF6AC5B176F7ADC002379EA /* NSURL+Additions.h in Headers */,
+				2CF6AC5C176F7AE1002379EA /* SKProduct+LocalizedPrice.h in Headers */,
+				2CF6AC5E176F7AEA002379EA /* UIImage+Edit.h in Headers */,
+				2CF6AC5F176F7AEB002379EA /* UIImage+Save.h in Headers */,
+				2CF6AC5D176F7AE5002379EA /* UIColor+Hex.h in Headers */,
+				2CF6ACBC1770133C002379EA /* EFCore.h in Headers */,
+				2CF6AC60176F7AF1002379EA /* UIImageView+Transition.h in Headers */,
+				2CF6AC63176F7B01002379EA /* EFPriorityQueue.h in Headers */,
+				2CF6AC69176F7B10002379EA /* EFSQLiteContext.h in Headers */,
+				2CF6AC78176F7B3F002379EA /* MD5.h in Headers */,
+				2CF6AC76176F7B38002379EA /* GTMDefines.h in Headers */,
+				2CF6AC75176F7B36002379EA /* GTMBase64.h in Headers */,
+				2CF6AC7B176F7B44002379EA /* SFHFKeychainUtils.h in Headers */,
+				2CF6AC7A176F7B43002379EA /* Pinyin.h in Headers */,
+				2CF6AC77176F7B3A002379EA /* JRSwizzle.h in Headers */,
+				2CF6AC6A176F7B11002379EA /* EFSQLiteHelper.h in Headers */,
+				2CF6AC6E176F7B1E002379EA /* EFRuntime.h in Headers */,
+				2CF6AC74176F7B2F002379EA /* EFUITextField.h in Headers */,
+				2CF6AC72176F7B2B002379EA /* EFButton.h in Headers */,
+				2CF6AC73176F7B2D002379EA /* EFImageButton.h in Headers */,
+				2CF6AC6F176F7B21002379EA /* EFSecurity.h in Headers */,
+				2CF6AC6D176F7B1A002379EA /* EFImageCache.h in Headers */,
+				2CF6AC6C176F7B18002379EA /* EFGraphics.h in Headers */,
+				2CF6AC6B176F7B13002379EA /* EFSQLiteObject.h in Headers */,
+				2CF6AC61176F7AF3002379EA /* UIView+Reflection.h in Headers */,
+				2CF6AC66176F7B06002379EA /* EFSynchronizedQueue.h in Headers */,
+				2CF6AC65176F7B05002379EA /* EFQueueExtended.h in Headers */,
+				2CF6AC64176F7B03002379EA /* EFQueue.h in Headers */,
+				2CF6AC67176F7B08002379EA /* EFKeyValuePair.h in Headers */,
+				2CF6AC62176F7B00002379EA /* EFComparable.h in Headers */,
+				2CF6AC95176F8DB2002379EA /* FMDatabase.h in Headers */,
+				2CF6AC97176F8DB2002379EA /* FMDatabaseAdditions.h in Headers */,
+				2CF6AC99176F8DB2002379EA /* FMDatabasePool.h in Headers */,
+				2CF6AC9B176F8DB2002379EA /* FMDatabaseQueue.h in Headers */,
+				2CF6AC9D176F8DB2002379EA /* FMResultSet.h in Headers */,
+				2CF6AC58176F7ACE002379EA /* NSString+AES.h in Headers */,
+				2CF6AC56176F7A82002379EA /* EFViewTagManager.h in Headers */,
+				9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */,
+				9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */,
+				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2CF6AB01176F7654002379EA /* EFCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CF6AB10176F7654002379EA /* Build configuration list for PBXNativeTarget "EFCore" */;
+			buildPhases = (
+				2CF6AAFE176F7654002379EA /* Sources */,
+				2CF6AAFF176F7654002379EA /* Frameworks */,
+				2CF6AC53176F7A47002379EA /* Headers */,
+				2CF6AC7C176F7E27002379EA /* Prepare framework */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EFCore;
+			productName = EFCore;
+			productReference = 2CF6AB02176F7654002379EA /* libEFCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CF6AAFA176F7654002379EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = yizhuolin;
+			};
+			buildConfigurationList = 2CF6AAFD176F7654002379EA /* Build configuration list for PBXProject "EFCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2CF6AAF9176F7654002379EA;
+			productRefGroup = 2CF6AB03176F7654002379EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CF6AB01176F7654002379EA /* EFCore */,
+				2CF6AC80176F892D002379EA /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CF6AC7C176F7E27002379EA /* Prepare framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Prepare framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n";
+		};
+		2CF6AC86176F897A002379EA /* Build Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CF6AAFE176F7654002379EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF6AC21176F77BD002379EA /* EFNotificationGenerator.m in Sources */,
+				2CF6AC27176F77BD002379EA /* EFFibonacciGenerator.m in Sources */,
+				2CF6AC28176F77BD002379EA /* EFViewTagManager.m in Sources */,
+				2CF6AC29176F77BD002379EA /* NSData+AES.m in Sources */,
+				2CF6AC2A176F77BD002379EA /* NSString+AES.m in Sources */,
+				2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */,
+				2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */,
+				2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */,
+				2CF6AC2E176F77BD002379EA /* SKProduct+LocalizedPrice.m in Sources */,
+				2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */,
+				2CF6AC30176F77BD002379EA /* UIImage+Edit.m in Sources */,
+				2CF6AC31176F77BD002379EA /* UIImage+Save.m in Sources */,
+				2CF6AC32176F77BD002379EA /* UIImageView+Transition.m in Sources */,
+				2CF6AC33176F77BD002379EA /* UIView+Reflection.m in Sources */,
+				2CF6AC34176F77BD002379EA /* EFPriorityQueue.m in Sources */,
+				2CF6AC35176F77BD002379EA /* EFSynchronizedQueue.m in Sources */,
+				2CF6AC36176F77BD002379EA /* EFKeyValuePair.m in Sources */,
+				2CF6AC38176F77BD002379EA /* EFSQLiteContext.m in Sources */,
+				2CF6AC39176F77BD002379EA /* EFSQLiteHelper.m in Sources */,
+				2CF6AC3A176F77BD002379EA /* EFSQLiteObject.m in Sources */,
+				2CF6AC3B176F77BD002379EA /* EFGraphics.m in Sources */,
+				2CF6AC3C176F77BD002379EA /* EFImageCache.m in Sources */,
+				2CF6AC3D176F77BD002379EA /* EFRuntime.m in Sources */,
+				2CF6AC3E176F77BD002379EA /* EFSecurity.m in Sources */,
+				2CF6AC41176F77BD002379EA /* EFButton.m in Sources */,
+				2CF6AC42176F77BD002379EA /* EFImageButton.m in Sources */,
+				2CF6AC43176F77BD002379EA /* EFUITextField.m in Sources */,
+				2CF6AC44176F77BD002379EA /* GTMBase64.m in Sources */,
+				2CF6AC45176F77BD002379EA /* JRSwizzle.m in Sources */,
+				2CF6AC46176F77BD002379EA /* MD5.m in Sources */,
+				2CF6AC48176F77BD002379EA /* Pinyin.c in Sources */,
+				2CF6AC4B176F77BD002379EA /* SFHFKeychainUtils.m in Sources */,
+				2CF6AC96176F8DB2002379EA /* FMDatabase.m in Sources */,
+				2CF6AC98176F8DB2002379EA /* FMDatabaseAdditions.m in Sources */,
+				2CF6AC9A176F8DB2002379EA /* FMDatabasePool.m in Sources */,
+				2CF6AC9C176F8DB2002379EA /* FMDatabaseQueue.m in Sources */,
+				2CF6AC9E176F8DB2002379EA /* FMResultSet.m in Sources */,
+				9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */,
+				9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */,
+				9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CF6AC85176F8943002379EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CF6AB01176F7654002379EA /* EFCore */;
+			targetProxy = 2CF6AC84176F8943002379EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2CF6AB0E176F7654002379EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2CF6AB0F176F7654002379EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CF6AB11176F7654002379EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/EFCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCore/EFCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		2CF6AB12176F7654002379EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/EFCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCore/EFCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		2CF6AC82176F892D002379EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2CF6AC83176F892D002379EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CF6AAFD176F7654002379EA /* Build configuration list for PBXProject "EFCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF6AB0E176F7654002379EA /* Debug */,
+				2CF6AB0F176F7654002379EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CF6AB10176F7654002379EA /* Build configuration list for PBXNativeTarget "EFCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF6AB11176F7654002379EA /* Debug */,
+				2CF6AB12176F7654002379EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CF6AC81176F892D002379EA /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CF6AC82176F892D002379EA /* Debug */,
+				2CF6AC83176F892D002379EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CF6AAFA176F7654002379EA /* Project object */;
+}
