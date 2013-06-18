@@ -197,7 +197,6 @@
 		2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		2CF6AC4D176F794B002379EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2CF6AC7F176F8181002379EA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		2CF6AC88176F8DB2002379EA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		2CF6AC89176F8DB2002379EA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		2CF6AC8B176F8DB2002379EA /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 		2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		2CF6AC93176F8DB2002379EA /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		2CF6AC94176F8DB2002379EA /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		593BE694655C4B68BDB6F3FC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
 		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
@@ -236,11 +234,9 @@
 		2CF6AAF9176F7654002379EA = {
 			isa = PBXGroup;
 			children = (
-				2CF6AC7F176F8181002379EA /* Podfile */,
 				2CF6AB07176F7654002379EA /* EFCore */,
 				2CF6AB04176F7654002379EA /* Frameworks */,
 				2CF6AB03176F7654002379EA /* Products */,
-				593BE694655C4B68BDB6F3FC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
