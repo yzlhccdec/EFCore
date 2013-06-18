@@ -10,15 +10,13 @@
 #import "EFButton.h"
 
 
-@implementation EFButton
-{
+@implementation EFButton {
     NSMutableDictionary *_items;
-    NSMutableSet *_eventsShouldIgnore;
+    NSMutableSet        *_eventsShouldIgnore;
 }
 
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
 
     if (self) {
@@ -28,59 +26,47 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.drawingBlock = nil;
-    self.controlDidChangeToStateBlock = nil;
+- (void)dealloc {
+    self.drawingBlock                  = nil;
+    self.controlDidChangeToStateBlock  = nil;
     self.controlWillChangeToStateBlock = nil;
 }
 
-- (void)pushItem:(id)item withIdentifier:(id)identifier
-{
+- (void)pushItem:(id)item withIdentifier:(id)identifier {
     [_items setObject:item forKey:identifier];
 }
 
-- (id)pollItemWithIdentifier:(id)identifier
-{
+- (id)pollItemWithIdentifier:(id)identifier {
     return [_items objectForKey:identifier];
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     CGPoint p = [self convertPoint:point toView:self.superview];
     return CGRectEqualToRect(_hitArea, CGRectZero) ?
-            [super pointInside:point withEvent:event] : CGRectContainsPoint(_hitArea, p);
+           [super pointInside:point withEvent:event] : CGRectContainsPoint(_hitArea, p);
 }
 
-- (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event
-{
-    if (event && [_eventsShouldIgnore containsObject:event])
-    {
+- (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
+    if (event && [_eventsShouldIgnore containsObject:event]) {
         [_eventsShouldIgnore removeObject:event];
     }
-    else
-    {
+    else {
         [super sendAction:action to:target forEvent:event];
     }
 }
 
-- (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    if (!CGRectEqualToRect(_hitArea, CGRectZero))
-    {
+- (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (!CGRectEqualToRect(_hitArea, CGRectZero)) {
         CGPoint location = [touch locationInView:self];
 
-        if ([self pointInside:location withEvent:event])
-        {
+        if ([self pointInside:location withEvent:event]) {
             [self sendActionsForControlEvents:UIControlEventTouchUpInside];
         }
-        else
-        {
+        else {
             [self sendActionsForControlEvents:UIControlEventTouchUpOutside];
         }
 
-        if (_eventsShouldIgnore == nil)
-        {
+        if (_eventsShouldIgnore == nil) {
             _eventsShouldIgnore = [[NSMutableSet alloc] init];
         }
 
@@ -88,15 +74,14 @@
     }
 }
 
-- (void)displayLayer:(CALayer *)layer
-{
+- (void)displayLayer:(CALayer *)layer {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     _drawingBlock(self, context, self.bounds);
 
     UIGraphicsEndImageContext();
-    self.layer.contents = (id)UIGraphicsGetImageFromCurrentImageContext().CGImage;
+    self.layer.contents = (id) UIGraphicsGetImageFromCurrentImageContext().CGImage;
 }
 
 - (void)setDrawingBlock:(DrawingBlock)drawingBlock {
@@ -106,8 +91,7 @@
     }
 }
 
-- (void)setHighlighted:(BOOL)highlighted
-{
+- (void)setHighlighted:(BOOL)highlighted {
     UIControlState state = highlighted ? self.state | UIControlStateHighlighted : self.state & (~UIControlStateHighlighted);
 
     if (state == self.state) {
@@ -125,8 +109,7 @@
     }
 }
 
-- (void)setEnabled:(BOOL)enabled
-{
+- (void)setEnabled:(BOOL)enabled {
     UIControlState state = enabled ? self.state & (~UIControlStateDisabled) : self.state | UIControlStateDisabled;
 
     if (state == self.state) {
@@ -144,8 +127,7 @@
     }
 }
 
-- (void)setSelected:(BOOL)selected
-{
+- (void)setSelected:(BOOL)selected {
     UIControlState state = selected ? self.state | UIControlStateSelected : self.state & (~UIControlStateSelected);
 
     if (state == self.state) {
@@ -188,7 +170,7 @@
 
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textAlignment   = NSTextAlignmentCenter;
         _titleLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_titleLabel];
     }
