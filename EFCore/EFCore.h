@@ -46,3 +46,5 @@
 #import "Pinyin.h"
 #import "SFHFKeychainUtils.h"
 #import "EFRuntime.h"
+#import "EFScrollView.h"
+#import "CALayer+ImageContent.h"

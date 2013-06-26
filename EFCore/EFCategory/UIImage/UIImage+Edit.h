@@ -11,4 +11,5 @@
 
 - (UIImage *)resizeToWidth:(CGFloat)width height:(CGFloat)height;
 
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
 @end

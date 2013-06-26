@@ -23,6 +23,7 @@
         _contentLayer = [[CALayer alloc] init];
         _contentLayer.contentsGravity = kCAGravityCenter;
         _contentLayer.frame = self.bounds;
+        _contentLayer.zPosition = -2;
         [self.layer addSublayer:_contentLayer];
     }
 
@@ -143,6 +144,7 @@
                     _highlightedLayer.frame = self.bounds;
                     _highlightedLayer.contentsGravity = kCAGravityCenter;
                     _highlightedLayer.contentsScale = _contentLayer.contentsScale;
+                    _highlightedLayer.zPosition = -1;
                     [self.layer addSublayer:_highlightedLayer];
                 }
                 _highlightedLayer.contents = (id)[self imageForState:self.state].CGImage;
