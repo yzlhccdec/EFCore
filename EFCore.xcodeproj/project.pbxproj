@@ -107,13 +107,15 @@
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
-		9D88F37AE3C7CF7A638A4C97 /* EFScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FC7C0F785CF5DB17241B /* EFScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F74105C927DC725C674B /* NSString+URLEncode.m */; };
+		9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */; };
 		9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F37168715D7D49028E6B /* EFEventHandlerList.m */; };
 		9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */; };
-		9D88F9250C2A16D99E444E04 /* EFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30D41D928BD869CB479 /* EFScrollView.m */; };
 		9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88FAC9CA5FC25994E7635E /* EFScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FC59DE84A7DE36A36762 /* EFScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88FFEE7EF4A22C3F48F152 /* EFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F7B548B0D06131FF43B8 /* EFScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,14 +217,16 @@
 		2CF6AC94176F8DB2002379EA /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
 		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
-		9D88F30D41D928BD869CB479 /* EFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFScrollView.m; path = ../../../MetalMaster/MetalMaster/UI/Views/EFScrollView.m; sourceTree = "<group>"; };
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
 		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
+		9D88F74105C927DC725C674B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
+		9D88F7B548B0D06131FF43B8 /* EFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFScrollView.m; sourceTree = "<group>"; };
 		9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ImageContent.h"; sourceTree = "<group>"; };
 		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
-		9D88FC7C0F785CF5DB17241B /* EFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFScrollView.h; path = ../../../MetalMaster/MetalMaster/UI/Views/EFScrollView.h; sourceTree = "<group>"; };
+		9D88FC59DE84A7DE36A36762 /* EFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFScrollView.h; sourceTree = "<group>"; };
 		9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ImageContent.m"; sourceTree = "<group>"; };
+		9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +364,8 @@
 			children = (
 				2CF6ABCD176F77BD002379EA /* NSString+Search.h */,
 				2CF6ABCE176F77BD002379EA /* NSString+Search.m */,
+				9D88F74105C927DC725C674B /* NSString+URLEncode.m */,
+				9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -471,8 +477,8 @@
 				2CF6AC08176F77BD002379EA /* EFImageButton.m */,
 				2CF6AC09176F77BD002379EA /* EFUITextField.h */,
 				2CF6AC0A176F77BD002379EA /* EFUITextField.m */,
-				9D88F30D41D928BD869CB479 /* EFScrollView.m */,
-				9D88FC7C0F785CF5DB17241B /* EFScrollView.h */,
+				9D88F7B548B0D06131FF43B8 /* EFScrollView.m */,
+				9D88FC59DE84A7DE36A36762 /* EFScrollView.h */,
 			);
 			path = EFView;
 			sourceTree = "<group>";
@@ -601,8 +607,9 @@
 				9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */,
 				9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */,
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
-				9D88F37AE3C7CF7A638A4C97 /* EFScrollView.h in Headers */,
+				9D88FAC9CA5FC25994E7635E /* EFScrollView.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
+				9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,8 +737,9 @@
 				9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */,
 				9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */,
 				9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */,
-				9D88F9250C2A16D99E444E04 /* EFScrollView.m in Sources */,
 				9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */,
+				9D88FFEE7EF4A22C3F48F152 /* EFScrollView.m in Sources */,
+				9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

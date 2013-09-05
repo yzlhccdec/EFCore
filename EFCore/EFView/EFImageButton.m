@@ -5,7 +5,6 @@
 //
 
 
-#import <QuartzCore/QuartzCore.h>
 #import "EFImageButton.h"
 
 #define kImageKey @"state_image_%d"
@@ -87,45 +86,73 @@
     [self updateLayerState];
 }
 
-- (UIImage *)imageForState:(UIControlState)state {
-    // remove illegal state
-    if ((state & UIControlStateDisabled) == UIControlStateDisabled) {
-        state &= ~UIControlStateHighlighted;
-    }
-
-    UIImage *image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, state]];
-    if (image) {
-        return image;
-    }
-
-    switch (state) {
-        case UIControlStateSelected | UIControlStateHighlighted: {
-            image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, UIControlStateHighlighted]];
-            if (image) {
-                return image;
-            }
-            image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, UIControlStateSelected]];
-            if (image) {
-                return image;
-            }
+- (void)setContentMode:(UIViewContentMode)contentMode {
+    [super setContentMode:contentMode];
+    switch (contentMode) {
+        case UIViewContentModeBottom:{
+            _contentLayer.contentsGravity = kCAGravityBottom;
+            _highlightedLayer.contentsGravity = kCAGravityBottom;
             break;
         }
-        case UIControlStateDisabled | UIControlStateSelected: {
-            image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, UIControlStateSelected]];
-            if (image) {
-                return image;
-            }
-            image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, UIControlStateDisabled]];
-            if (image) {
-                return image;
-            }
+        case UIViewContentModeBottomLeft:{
+            _contentLayer.contentsGravity = kCAGravityBottomLeft;
+            _highlightedLayer.contentsGravity = kCAGravityBottomLeft;
             break;
         }
-        default: {
+        case UIViewContentModeBottomRight:{
+            _contentLayer.contentsGravity = kCAGravityBottomRight;
+            _highlightedLayer.contentsGravity = kCAGravityBottomRight;
+            break;
+        }
+        case UIViewContentModeCenter:{
+            _contentLayer.contentsGravity = kCAGravityCenter;
+            _highlightedLayer.contentsGravity = kCAGravityCenter;
+            break;
+        }
+        case UIViewContentModeLeft:{
+            _contentLayer.contentsGravity = kCAGravityLeft;
+            _highlightedLayer.contentsGravity = kCAGravityLeft;
+            break;
+        }
+        case UIViewContentModeRedraw:{
+            break;
+        }
+        case UIViewContentModeRight:{
+            _contentLayer.contentsGravity = kCAGravityRight;
+            _highlightedLayer.contentsGravity = kCAGravityRight;
+            break;
+        }
+        case UIViewContentModeScaleAspectFill:{
+            _contentLayer.contentsGravity = kCAGravityResizeAspectFill;
+            _highlightedLayer.contentsGravity = kCAGravityResizeAspectFill;
+            break;
+        }
+        case UIViewContentModeScaleAspectFit:{
+            _contentLayer.contentsGravity = kCAGravityResizeAspect;
+            _highlightedLayer.contentsGravity = kCAGravityResizeAspect;
+            break;
+        }
+        case UIViewContentModeScaleToFill:{
+            _contentLayer.contentsGravity = kCAGravityResize;
+            _highlightedLayer.contentsGravity = kCAGravityResize;
+            break;
+        }
+        case UIViewContentModeTop:{
+            _contentLayer.contentsGravity = kCAGravityTop;
+            _highlightedLayer.contentsGravity = kCAGravityTop;
+            break;
+        }
+        case UIViewContentModeTopLeft:{
+            _contentLayer.contentsGravity = kCAGravityTopLeft;
+            _highlightedLayer.contentsGravity = kCAGravityTopLeft;
+            break;
+        }
+        case UIViewContentModeTopRight:{
+            _contentLayer.contentsGravity = kCAGravityTopRight;
+            _highlightedLayer.contentsGravity = kCAGravityTopRight;
             break;
         }
     }
-    return [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, UIControlStateNormal]];
 }
 
 - (void)updateLayerState {
@@ -135,23 +162,33 @@
             [CATransaction setDisableActions:YES];
         }
 
-        if (_shouldHighlightedStateOverlayOthers) {
-            _contentLayer.contents = (id)[self imageForState:self.state].CGImage;
+        UIImage *image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, self.state]];
+
+        if (_shouldHighlightedStateOverlayOthers && image != nil) {
+            _contentLayer.contents = (id)image.CGImage;
         } else {
             if ((self.state & UIControlStateHighlighted) == UIControlStateHighlighted) {
-                if (_highlightedLayer == nil) {
-                    _highlightedLayer = [[CALayer alloc] init];
-                    _highlightedLayer.frame = self.bounds;
-                    _highlightedLayer.contentsGravity = kCAGravityCenter;
-                    _highlightedLayer.contentsScale = _contentLayer.contentsScale;
-                    _highlightedLayer.zPosition = -1;
-                    [self.layer addSublayer:_highlightedLayer];
+                if (image == nil) {
+                    image = [self pollItemWithIdentifier:[NSString stringWithFormat:kImageKey, self.state & (~UIControlStateHighlighted)]];
+                    if (image != nil) {
+                        _contentLayer.contents = (id)image.CGImage;
+                    }
+                } else {
+                    if (_highlightedLayer == nil) {
+                        _highlightedLayer = [[CALayer alloc] init];
+                        _highlightedLayer.frame = self.bounds;
+                        _highlightedLayer.contentsGravity = kCAGravityCenter;
+                        _highlightedLayer.contentsScale = _contentLayer.contentsScale;
+                        _highlightedLayer.zPosition = -1;
+                        [self.layer addSublayer:_highlightedLayer];
+                    }
+                    self.contentMode = self.contentMode;
+                    _highlightedLayer.contents = (id)image.CGImage;
+                    _highlightedLayer.hidden = NO;
                 }
-                _highlightedLayer.contents = (id)[self imageForState:self.state].CGImage;
-                _highlightedLayer.hidden = NO;
             } else {
                 _highlightedLayer.hidden = YES;
-                _contentLayer.contents = (id)[self imageForState:self.state].CGImage;
+                _contentLayer.contents = (id)image.CGImage;
             }
         }
     }
