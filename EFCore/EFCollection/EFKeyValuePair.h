@@ -12,8 +12,8 @@
 
 - (id)initWithKey:(id)key andValue:(id)value;
 
-@property (nonatomic) id key;
+@property (nonatomic, strong) id key;
 
-@property (nonatomic) id value;
+@property (nonatomic, strong) id value;
 
 @end

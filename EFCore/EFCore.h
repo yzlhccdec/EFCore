@@ -48,3 +48,4 @@
 #import "EFRuntime.h"
 #import "EFScrollView.h"
 #import "CALayer+ImageContent.h"
+#import "NSString+URLEncode.h"
