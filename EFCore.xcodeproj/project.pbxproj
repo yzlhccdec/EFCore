@@ -49,7 +49,7 @@
 		2CF6AC3E176F77BD002379EA /* EFSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABFE176F77BD002379EA /* EFSecurity.m */; };
 		2CF6AC41176F77BD002379EA /* EFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC06176F77BD002379EA /* EFButton.m */; };
 		2CF6AC42176F77BD002379EA /* EFImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC08176F77BD002379EA /* EFImageButton.m */; };
-		2CF6AC43176F77BD002379EA /* EFUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC0A176F77BD002379EA /* EFUITextField.m */; };
+		2CF6AC43176F77BD002379EA /* EFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC0A176F77BD002379EA /* EFTextField.m */; };
 		2CF6AC44176F77BD002379EA /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC0D176F77BD002379EA /* GTMBase64.m */; };
 		2CF6AC45176F77BD002379EA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC10176F77BD002379EA /* JRSwizzle.m */; };
 		2CF6AC46176F77BD002379EA /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC12176F77BD002379EA /* MD5.m */; };
@@ -85,7 +85,7 @@
 		2CF6AC6F176F7B21002379EA /* EFSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABFD176F77BD002379EA /* EFSecurity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC72176F7B2B002379EA /* EFButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC05176F77BD002379EA /* EFButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC73176F7B2D002379EA /* EFImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC07176F77BD002379EA /* EFImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC74176F7B2F002379EA /* EFUITextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC09176F77BD002379EA /* EFUITextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF6AC74176F7B2F002379EA /* EFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC09176F77BD002379EA /* EFTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC75176F7B36002379EA /* GTMBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0C176F77BD002379EA /* GTMBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC76176F7B38002379EA /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0E176F77BD002379EA /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC77176F7B3A002379EA /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC0F176F77BD002379EA /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,16 +93,6 @@
 		2CF6AC7A176F7B43002379EA /* Pinyin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC16176F77BD002379EA /* Pinyin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC7B176F7B44002379EA /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC1C176F77BD002379EA /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AC4F176F7956002379EA /* UIKit.framework */; };
-		2CF6AC95176F8DB2002379EA /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8B176F8DB2002379EA /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC96176F8DB2002379EA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC8C176F8DB2002379EA /* FMDatabase.m */; };
-		2CF6AC97176F8DB2002379EA /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC98176F8DB2002379EA /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */; };
-		2CF6AC99176F8DB2002379EA /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC9A176F8DB2002379EA /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */; };
-		2CF6AC9B176F8DB2002379EA /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC9C176F8DB2002379EA /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */; };
-		2CF6AC9D176F8DB2002379EA /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC93176F8DB2002379EA /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC9E176F8DB2002379EA /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6AC94176F8DB2002379EA /* FMResultSet.m */; };
 		2CF6ACBC1770133C002379EA /* EFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB0A176F7654002379EA /* EFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,8 +104,7 @@
 		9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */; };
 		9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88FAC9CA5FC25994E7635E /* EFScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FC59DE84A7DE36A36762 /* EFScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88FFEE7EF4A22C3F48F152 /* EFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F7B548B0D06131FF43B8 /* EFScrollView.m */; };
+		D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E0E813F3C949FE9E87A6F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,8 +177,8 @@
 		2CF6AC06176F77BD002379EA /* EFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFButton.m; sourceTree = "<group>"; };
 		2CF6AC07176F77BD002379EA /* EFImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFImageButton.h; sourceTree = "<group>"; };
 		2CF6AC08176F77BD002379EA /* EFImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFImageButton.m; sourceTree = "<group>"; };
-		2CF6AC09176F77BD002379EA /* EFUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFUITextField.h; sourceTree = "<group>"; };
-		2CF6AC0A176F77BD002379EA /* EFUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFUITextField.m; sourceTree = "<group>"; };
+		2CF6AC09176F77BD002379EA /* EFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFTextField.h; sourceTree = "<group>"; };
+		2CF6AC0A176F77BD002379EA /* EFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFTextField.m; sourceTree = "<group>"; };
 		2CF6AC0C176F77BD002379EA /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		2CF6AC0D176F77BD002379EA /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		2CF6AC0E176F77BD002379EA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -203,30 +192,19 @@
 		2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		2CF6AC4D176F794B002379EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2CF6AC88176F8DB2002379EA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		2CF6AC89176F8DB2002379EA /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		2CF6AC8B176F8DB2002379EA /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		2CF6AC8C176F8DB2002379EA /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		2CF6AC93176F8DB2002379EA /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		2CF6AC94176F8DB2002379EA /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		2CF8DFBF181E26970068BC5F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		77E0E813F3C949FE9E87A6F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
 		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
 		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
 		9D88F74105C927DC725C674B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
-		9D88F7B548B0D06131FF43B8 /* EFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFScrollView.m; sourceTree = "<group>"; };
 		9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ImageContent.h"; sourceTree = "<group>"; };
 		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
-		9D88FC59DE84A7DE36A36762 /* EFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFScrollView.h; sourceTree = "<group>"; };
 		9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ImageContent.m"; sourceTree = "<group>"; };
 		9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +215,7 @@
 				2CF6AB06176F7654002379EA /* Foundation.framework in Frameworks */,
 				2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */,
 				2CF6AC52176F7977002379EA /* CoreGraphics.framework in Frameworks */,
+				D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +228,7 @@
 				2CF6AB07176F7654002379EA /* EFCore */,
 				2CF6AB04176F7654002379EA /* Frameworks */,
 				2CF6AB03176F7654002379EA /* Products */,
+				F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,9 +243,11 @@
 		2CF6AB04176F7654002379EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CF8DFBF181E26970068BC5F /* libsqlite3.dylib */,
 				2CF6AC4F176F7956002379EA /* UIKit.framework */,
 				2CF6AC4D176F794B002379EA /* CoreGraphics.framework */,
 				2CF6AB05176F7654002379EA /* Foundation.framework */,
+				77E0E813F3C949FE9E87A6F0 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,7 +255,6 @@
 		2CF6AB07176F7654002379EA /* EFCore */ = {
 			isa = PBXGroup;
 			children = (
-				2CF6AC87176F8DB2002379EA /* FMDB */,
 				2CF6AB14176F7713002379EA /* Classes */,
 				2CF6AB0A176F7654002379EA /* EFCore.h */,
 				2CF6AB08176F7654002379EA /* Supporting Files */,
@@ -475,10 +456,8 @@
 				2CF6AC06176F77BD002379EA /* EFButton.m */,
 				2CF6AC07176F77BD002379EA /* EFImageButton.h */,
 				2CF6AC08176F77BD002379EA /* EFImageButton.m */,
-				2CF6AC09176F77BD002379EA /* EFUITextField.h */,
-				2CF6AC0A176F77BD002379EA /* EFUITextField.m */,
-				9D88F7B548B0D06131FF43B8 /* EFScrollView.m */,
-				9D88FC59DE84A7DE36A36762 /* EFScrollView.h */,
+				2CF6AC09176F77BD002379EA /* EFTextField.h */,
+				2CF6AC0A176F77BD002379EA /* EFTextField.m */,
 			);
 			path = EFView;
 			sourceTree = "<group>";
@@ -499,33 +478,6 @@
 				2CF6AC1D176F77BD002379EA /* SFHFKeychainUtils.m */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		2CF6AC87176F8DB2002379EA /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				2CF6AC88176F8DB2002379EA /* LICENSE.txt */,
-				2CF6AC89176F8DB2002379EA /* README.markdown */,
-				2CF6AC8A176F8DB2002379EA /* src */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
-		2CF6AC8A176F8DB2002379EA /* src */ = {
-			isa = PBXGroup;
-			children = (
-				2CF6AC8B176F8DB2002379EA /* FMDatabase.h */,
-				2CF6AC8C176F8DB2002379EA /* FMDatabase.m */,
-				2CF6AC8D176F8DB2002379EA /* FMDatabaseAdditions.h */,
-				2CF6AC8E176F8DB2002379EA /* FMDatabaseAdditions.m */,
-				2CF6AC8F176F8DB2002379EA /* FMDatabasePool.h */,
-				2CF6AC90176F8DB2002379EA /* FMDatabasePool.m */,
-				2CF6AC91176F8DB2002379EA /* FMDatabaseQueue.h */,
-				2CF6AC92176F8DB2002379EA /* FMDatabaseQueue.m */,
-				2CF6AC93176F8DB2002379EA /* FMResultSet.h */,
-				2CF6AC94176F8DB2002379EA /* FMResultSet.m */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		9D88F4C32164636B6C89D038 /* NSFileManager */ = {
@@ -584,7 +536,7 @@
 				2CF6AC77176F7B3A002379EA /* JRSwizzle.h in Headers */,
 				2CF6AC6A176F7B11002379EA /* EFSQLiteHelper.h in Headers */,
 				2CF6AC6E176F7B1E002379EA /* EFRuntime.h in Headers */,
-				2CF6AC74176F7B2F002379EA /* EFUITextField.h in Headers */,
+				2CF6AC74176F7B2F002379EA /* EFTextField.h in Headers */,
 				2CF6AC72176F7B2B002379EA /* EFButton.h in Headers */,
 				2CF6AC73176F7B2D002379EA /* EFImageButton.h in Headers */,
 				2CF6AC6F176F7B21002379EA /* EFSecurity.h in Headers */,
@@ -597,17 +549,11 @@
 				2CF6AC64176F7B03002379EA /* EFQueue.h in Headers */,
 				2CF6AC67176F7B08002379EA /* EFKeyValuePair.h in Headers */,
 				2CF6AC62176F7B00002379EA /* EFComparable.h in Headers */,
-				2CF6AC95176F8DB2002379EA /* FMDatabase.h in Headers */,
-				2CF6AC97176F8DB2002379EA /* FMDatabaseAdditions.h in Headers */,
-				2CF6AC99176F8DB2002379EA /* FMDatabasePool.h in Headers */,
-				2CF6AC9B176F8DB2002379EA /* FMDatabaseQueue.h in Headers */,
-				2CF6AC9D176F8DB2002379EA /* FMResultSet.h in Headers */,
 				2CF6AC58176F7ACE002379EA /* NSString+AES.h in Headers */,
 				2CF6AC56176F7A82002379EA /* EFViewTagManager.h in Headers */,
 				9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */,
 				9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */,
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
-				9D88FAC9CA5FC25994E7635E /* EFScrollView.h in Headers */,
 				9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
 			);
@@ -620,10 +566,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CF6AB10176F7654002379EA /* Build configuration list for PBXNativeTarget "EFCore" */;
 			buildPhases = (
+				EF632DB21AE44193AD37BCD3 /* Check Pods Manifest.lock */,
 				2CF6AAFE176F7654002379EA /* Sources */,
 				2CF6AAFF176F7654002379EA /* Frameworks */,
 				2CF6AC53176F7A47002379EA /* Headers */,
 				2CF6AC7C176F7E27002379EA /* Prepare framework */,
+				E3C80665FB1E4D4BA42289D1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -690,6 +638,36 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"";
 		};
+		E3C80665FB1E4D4BA42289D1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF632DB21AE44193AD37BCD3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -723,22 +701,16 @@
 				2CF6AC3E176F77BD002379EA /* EFSecurity.m in Sources */,
 				2CF6AC41176F77BD002379EA /* EFButton.m in Sources */,
 				2CF6AC42176F77BD002379EA /* EFImageButton.m in Sources */,
-				2CF6AC43176F77BD002379EA /* EFUITextField.m in Sources */,
+				2CF6AC43176F77BD002379EA /* EFTextField.m in Sources */,
 				2CF6AC44176F77BD002379EA /* GTMBase64.m in Sources */,
 				2CF6AC45176F77BD002379EA /* JRSwizzle.m in Sources */,
 				2CF6AC46176F77BD002379EA /* MD5.m in Sources */,
 				2CF6AC48176F77BD002379EA /* Pinyin.c in Sources */,
 				2CF6AC4B176F77BD002379EA /* SFHFKeychainUtils.m in Sources */,
-				2CF6AC96176F8DB2002379EA /* FMDatabase.m in Sources */,
-				2CF6AC98176F8DB2002379EA /* FMDatabaseAdditions.m in Sources */,
-				2CF6AC9A176F8DB2002379EA /* FMDatabasePool.m in Sources */,
-				2CF6AC9C176F8DB2002379EA /* FMDatabaseQueue.m in Sources */,
-				2CF6AC9E176F8DB2002379EA /* FMResultSet.m in Sources */,
 				9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */,
 				9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */,
 				9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */,
 				9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */,
-				9D88FFEE7EF4A22C3F48F152 /* EFScrollView.m in Sources */,
 				9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -778,7 +751,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -788,6 +761,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -801,7 +775,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -809,12 +783,16 @@
 		};
 		2CF6AB11176F7654002379EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/EFCore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EFCore/EFCore-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
@@ -825,12 +803,15 @@
 		};
 		2CF6AB12176F7654002379EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/EFCore.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EFCore/EFCore-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
@@ -842,14 +823,20 @@
 		2CF6AC82176F892D002379EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/\"/** \"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
 		2CF6AC83176F892D002379EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/\"/** \"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

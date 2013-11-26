@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3A6B4CB9-7D7C-4527-98FB-84728773EE93</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EFCore</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D1A36E6E-EBA9-4DC7-B2BA-130D33BE5911</key>
+		<string>https://github.com/AaronYi/EFCore.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EFCore.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D1A36E6E-EBA9-4DC7-B2BA-130D33BE5911</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AaronYi/EFCore.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D1A36E6E-EBA9-4DC7-B2BA-130D33BE5911</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D1A36E6E-EBA9-4DC7-B2BA-130D33BE5911</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EFCore</string>
+		</dict>
+	</array>
+</dict>
+</plist>

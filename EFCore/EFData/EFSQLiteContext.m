@@ -55,6 +55,7 @@ static NSMutableDictionary *sDeleteSQLs;
         result = [self addObject:object withConflictOption:option toDatabase:database];
     }];
 
+
     return result;
 }
 
@@ -73,7 +74,9 @@ static NSMutableDictionary *sDeleteSQLs;
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count]];
 
     for (EFKeyValuePair *pair in fields) {
-        [fieldValues addObject:[object valueForKey:pair.key]];
+        if ([((NSString *) pair.value) rangeOfString:@"R,"].location == NSNotFound) {
+            [fieldValues addObject:[object valueForKey:pair.key]];
+        }
     }
 
     return [database executeUpdate:insertSQL withArgumentsInArray:fieldValues];

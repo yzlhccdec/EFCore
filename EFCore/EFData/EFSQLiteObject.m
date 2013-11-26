@@ -45,7 +45,6 @@
 
             for (int i = 0; i < count; i++) {
                 EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
-                //DLog(@"%s", name)
                 if (![excludedProperties containsObject:pair.key] && ![addedProperties containsObject:pair.key]) {
                     [propertyList addObject:pair];
                     [addedProperties addObject:pair.key];
@@ -66,7 +65,7 @@
 - (void)startModification
 {
     _changedProperties = [[NSMutableArray alloc] init];
-    if (_isKVORegistered == NO) {
+    if (!_isKVORegistered) {
         [self registerForKVO];
     }
 }
@@ -86,8 +85,8 @@
 {
     DLog("register");
     _isKVORegistered = YES;
-    NSArray *observableKeypaths = self.fieldsForPersistence;
-    for (EFKeyValuePair *pair in observableKeypaths) {
+    NSArray *observableKeyPaths = self.fieldsForPersistence;
+    for (EFKeyValuePair *pair in observableKeyPaths) {
         [self addObserver:self forKeyPath:pair.key options:NSKeyValueObservingOptionNew context:NULL];
     }
 }

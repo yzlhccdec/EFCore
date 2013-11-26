@@ -23,6 +23,7 @@
         _contentLayer.contentsGravity = kCAGravityCenter;
         _contentLayer.frame = self.bounds;
         _contentLayer.zPosition = -2;
+        self.contentMode = UIViewContentModeCenter;
         [self.layer addSublayer:_contentLayer];
     }
 
@@ -44,9 +45,11 @@
 }
 
 - (void)setImage:(UIImage *)image forState:(UIControlState)state {
-    [self pushItem:image withIdentifier:[NSString stringWithFormat:kImageKey, state]];
-    _contentLayer.contentsScale = image.scale;
-    [self updateLayerState];
+    if (image != nil) {
+        [self pushItem:image withIdentifier:[NSString stringWithFormat:kImageKey, state]];
+        _contentLayer.contentsScale = image.scale;
+        [self updateLayerState];
+    }
 }
 
 - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -177,12 +180,11 @@
                     if (_highlightedLayer == nil) {
                         _highlightedLayer = [[CALayer alloc] init];
                         _highlightedLayer.frame = self.bounds;
-                        _highlightedLayer.contentsGravity = kCAGravityCenter;
+                        self.contentMode = self.contentMode;
                         _highlightedLayer.contentsScale = _contentLayer.contentsScale;
                         _highlightedLayer.zPosition = -1;
                         [self.layer addSublayer:_highlightedLayer];
                     }
-                    self.contentMode = self.contentMode;
                     _highlightedLayer.contents = (id)image.CGImage;
                     _highlightedLayer.hidden = NO;
                 }

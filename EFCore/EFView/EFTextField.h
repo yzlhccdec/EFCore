@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface EFUITextField : UITextField
+@interface EFTextField : UITextField
 @property (nonatomic) CGFloat verticalPadding;
 @property (nonatomic) CGFloat horizontalPadding;
+@property (nonatomic, assign) BOOL showsCursor;
 @end
