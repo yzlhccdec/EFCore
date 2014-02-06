@@ -97,16 +97,20 @@
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
-		9D88F3EAA0474B83DFD94D48 /* UIView+Position.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F0BB63F075A9F922B748 /* UIView+Position.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F3EAA0474B83DFD94D48 /* UIView+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F0BB63F075A9F922B748 /* UIView+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88F44F2EE6C724854A3FB4 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F4CC6CC19A662667D874 /* UIView+Position.m */; };
+		9D88F44F2EE6C724854A3FB4 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F4CC6CC19A662667D874 /* UIView+Utils.m */; };
 		9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F74105C927DC725C674B /* NSString+URLEncode.m */; };
 		9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */; };
+		9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */; };
 		9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F37168715D7D49028E6B /* EFEventHandlerList.m */; };
 		9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */; };
+		9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */; };
 		9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */; };
 		9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */; };
 		D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E0E813F3C949FE9E87A6F0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -198,18 +202,22 @@
 		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CF8DFBF181E26970068BC5F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		77E0E813F3C949FE9E87A6F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D88F0BB63F075A9F922B748 /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		9D88F0BB63F075A9F922B748 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
 		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
 		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
-		9D88F4CC6CC19A662667D874 /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
+		9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+EFAppStoreLinks.m"; sourceTree = "<group>"; };
+		9D88F4CC6CC19A662667D874 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		9D88F74105C927DC725C674B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
+		9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+EFAppStoreLinks.h"; sourceTree = "<group>"; };
 		9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ImageContent.h"; sourceTree = "<group>"; };
 		9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PRTween+Transform.h"; sourceTree = "<group>"; };
 		9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PRTween+Transform.m"; sourceTree = "<group>"; };
 		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
+		9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EFFileAttributes.m"; sourceTree = "<group>"; };
+		9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EFFileAttributes.h"; sourceTree = "<group>"; };
 		9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ImageContent.m"; sourceTree = "<group>"; };
 		9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -365,6 +373,8 @@
 			children = (
 				2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */,
 				2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */,
+				9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */,
+				9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */,
 			);
 			path = NSURL;
 			sourceTree = "<group>";
@@ -405,8 +415,8 @@
 				2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */,
 				2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */,
 				2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */,
-				9D88F4CC6CC19A662667D874 /* UIView+Position.m */,
-				9D88F0BB63F075A9F922B748 /* UIView+Position.h */,
+				9D88F4CC6CC19A662667D874 /* UIView+Utils.m */,
+				9D88F0BB63F075A9F922B748 /* UIView+Utils.h */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -496,6 +506,8 @@
 			children = (
 				9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */,
 				9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */,
+				9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */,
+				9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */,
 			);
 			path = NSFileManager;
 			sourceTree = "<group>";
@@ -576,8 +588,10 @@
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
 				9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */,
 				9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */,
-				9D88F3EAA0474B83DFD94D48 /* UIView+Position.h in Headers */,
+				9D88F3EAA0474B83DFD94D48 /* UIView+Utils.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
+				9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */,
+				9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,7 +749,9 @@
 				9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */,
 				9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */,
 				9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */,
-				9D88F44F2EE6C724854A3FB4 /* UIView+Position.m in Sources */,
+				9D88F44F2EE6C724854A3FB4 /* UIView+Utils.m in Sources */,
+				9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */,
+				9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,7 +792,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -816,7 +832,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EFCore/EFCore-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";

@@ -10,4 +10,6 @@
 + (CALayer *)layerWithImage:(UIImage *)image scale:(CGFloat)scale;
 
 - (void)setContentImage:(UIImage *)image scale:(CGFloat)scale;
+
+- (void)setContentImage:(UIImage *)image scale:(CGFloat)scale gravity:(NSString *)gravity;
 @end

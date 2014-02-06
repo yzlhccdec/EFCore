@@ -17,9 +17,13 @@
 }
 
 - (void)setContentImage:(UIImage *)image scale:(CGFloat)scale {
+    [self setContentImage:image scale:scale gravity:kCAGravityCenter];
+}
+
+- (void)setContentImage:(UIImage *)image scale:(CGFloat)scale gravity:(NSString *)gravity {
     self.contents = (id)image.CGImage;
     self.contentsScale = scale == 0 ? image.scale : scale;
-    self.contentsGravity = kCAGravityCenter;
+    self.contentsGravity = gravity;
 }
 
 @end
