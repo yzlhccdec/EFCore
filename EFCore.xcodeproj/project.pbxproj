@@ -31,12 +31,10 @@
 		2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */; };
 		2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCE176F77BD002379EA /* NSString+Search.m */; };
 		2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */; };
-		2CF6AC2E176F77BD002379EA /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */; };
 		2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */; };
 		2CF6AC30176F77BD002379EA /* UIImage+Edit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDA176F77BD002379EA /* UIImage+Edit.m */; };
 		2CF6AC31176F77BD002379EA /* UIImage+Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDC176F77BD002379EA /* UIImage+Save.m */; };
 		2CF6AC32176F77BD002379EA /* UIImageView+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */; };
-		2CF6AC33176F77BD002379EA /* UIView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */; };
 		2CF6AC34176F77BD002379EA /* EFPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE5176F77BD002379EA /* EFPriorityQueue.m */; };
 		2CF6AC35176F77BD002379EA /* EFSynchronizedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABE9176F77BD002379EA /* EFSynchronizedQueue.m */; };
 		2CF6AC36176F77BD002379EA /* EFKeyValuePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABEB176F77BD002379EA /* EFKeyValuePair.m */; };
@@ -64,12 +62,10 @@
 		2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC5176F77BD002379EA /* NSData+AES.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABCD176F77BD002379EA /* NSString+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5B176F7ADC002379EA /* NSURL+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC5C176F7AE1002379EA /* SKProduct+LocalizedPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5D176F7AE5002379EA /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD6176F77BD002379EA /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5E176F7AEA002379EA /* UIImage+Edit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABD9176F77BD002379EA /* UIImage+Edit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5F176F7AEB002379EA /* UIImage+Save.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABDB176F77BD002379EA /* UIImage+Save.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC60176F7AF1002379EA /* UIImageView+Transition.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC61176F7AF3002379EA /* UIView+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC62176F7B00002379EA /* EFComparable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE3176F77BD002379EA /* EFComparable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC63176F7B01002379EA /* EFPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE4176F77BD002379EA /* EFPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC64176F7B03002379EA /* EFQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABE6176F77BD002379EA /* EFQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,19 +93,21 @@
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
-		9D88F3EAA0474B83DFD94D48 /* UIView+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F0BB63F075A9F922B748 /* UIView+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88F44F2EE6C724854A3FB4 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F4CC6CC19A662667D874 /* UIView+Utils.m */; };
 		9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F74105C927DC725C674B /* NSString+URLEncode.m */; };
 		9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F6410D85E887D991E171 /* UIView+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2A0D1BF9E986E4DC1DA /* UIView+Reflection.h */; };
 		9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */; };
 		9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */; };
 		9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F37168715D7D49028E6B /* EFEventHandlerList.m */; };
+		9D88F864CE9897C8547EFF77 /* UIView+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F6A350F49DA8E0F45558 /* UIView+Utils.h */; };
 		9D88F8C79228EA00642BCA22 /* NSCache+SharedCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */; };
 		9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */; };
 		9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FEED81CA3025DB5D3F96 /* UIView+Reflection.m */; };
+		9D88FC89558F518E6C7F0F9A /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */; };
 		9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */; };
 		9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */; };
 		D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E0E813F3C949FE9E87A6F0 /* libPods.a */; };
@@ -146,8 +144,6 @@
 		2CF6ABCE176F77BD002379EA /* NSString+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Search.m"; sourceTree = "<group>"; };
 		2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Additions.h"; sourceTree = "<group>"; };
 		2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Additions.m"; sourceTree = "<group>"; };
-		2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
-		2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		2CF6ABD6176F77BD002379EA /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		2CF6ABD9176F77BD002379EA /* UIImage+Edit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Edit.h"; sourceTree = "<group>"; };
@@ -156,8 +152,6 @@
 		2CF6ABDC176F77BD002379EA /* UIImage+Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Save.m"; sourceTree = "<group>"; };
 		2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Transition.h"; sourceTree = "<group>"; };
 		2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Transition.m"; sourceTree = "<group>"; };
-		2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Reflection.h"; sourceTree = "<group>"; };
-		2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Reflection.m"; sourceTree = "<group>"; };
 		2CF6ABE3176F77BD002379EA /* EFComparable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFComparable.h; sourceTree = "<group>"; };
 		2CF6ABE4176F77BD002379EA /* EFPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFPriorityQueue.h; sourceTree = "<group>"; };
 		2CF6ABE5176F77BD002379EA /* EFPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFPriorityQueue.m; sourceTree = "<group>"; };
@@ -202,13 +196,14 @@
 		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CF8DFBF181E26970068BC5F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		77E0E813F3C949FE9E87A6F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D88F0BB63F075A9F922B748 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SystemDirectory.m"; sourceTree = "<group>"; };
+		9D88F2A0D1BF9E986E4DC1DA /* UIView+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Reflection.h"; sourceTree = "<group>"; };
 		9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCache+SharedCache.h"; path = "EFCore/EFCollection/NSCache+SharedCache.h"; sourceTree = SOURCE_ROOT; };
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
 		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
 		9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+EFAppStoreLinks.m"; sourceTree = "<group>"; };
-		9D88F4CC6CC19A662667D874 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		9D88F6A350F49DA8E0F45558 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		9D88F74105C927DC725C674B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
 		9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+EFAppStoreLinks.h"; sourceTree = "<group>"; };
@@ -219,6 +214,7 @@
 		9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EFFileAttributes.m"; sourceTree = "<group>"; };
 		9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EFFileAttributes.h"; sourceTree = "<group>"; };
 		9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ImageContent.m"; sourceTree = "<group>"; };
+		9D88FEED81CA3025DB5D3F96 /* UIView+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Reflection.m"; sourceTree = "<group>"; };
 		9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		F84A2B33F60649B4A66B2F2D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,7 +321,6 @@
 				2CF6ABC9176F77BD002379EA /* NSDate */,
 				2CF6ABCC176F77BD002379EA /* NSString */,
 				2CF6ABCF176F77BD002379EA /* NSURL */,
-				2CF6ABD2176F77BD002379EA /* StoreKit */,
 				2CF6ABD5176F77BD002379EA /* UIColor */,
 				2CF6ABD8176F77BD002379EA /* UIImage */,
 				2CF6ABDD176F77BD002379EA /* UIView */,
@@ -379,15 +374,6 @@
 			path = NSURL;
 			sourceTree = "<group>";
 		};
-		2CF6ABD2176F77BD002379EA /* StoreKit */ = {
-			isa = PBXGroup;
-			children = (
-				2CF6ABD3176F77BD002379EA /* SKProduct+LocalizedPrice.h */,
-				2CF6ABD4176F77BD002379EA /* SKProduct+LocalizedPrice.m */,
-			);
-			path = StoreKit;
-			sourceTree = "<group>";
-		};
 		2CF6ABD5176F77BD002379EA /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,10 +399,10 @@
 			children = (
 				2CF6ABDE176F77BD002379EA /* UIImageView+Transition.h */,
 				2CF6ABDF176F77BD002379EA /* UIImageView+Transition.m */,
-				2CF6ABE0176F77BD002379EA /* UIView+Reflection.h */,
-				2CF6ABE1176F77BD002379EA /* UIView+Reflection.m */,
-				9D88F4CC6CC19A662667D874 /* UIView+Utils.m */,
-				9D88F0BB63F075A9F922B748 /* UIView+Utils.h */,
+				9D88F2A0D1BF9E986E4DC1DA /* UIView+Reflection.h */,
+				9D88FEED81CA3025DB5D3F96 /* UIView+Reflection.m */,
+				9D88F6A350F49DA8E0F45558 /* UIView+Utils.h */,
+				9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -552,7 +538,6 @@
 				2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */,
 				2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */,
 				2CF6AC5B176F7ADC002379EA /* NSURL+Additions.h in Headers */,
-				2CF6AC5C176F7AE1002379EA /* SKProduct+LocalizedPrice.h in Headers */,
 				2CF6AC5E176F7AEA002379EA /* UIImage+Edit.h in Headers */,
 				2CF6AC5F176F7AEB002379EA /* UIImage+Save.h in Headers */,
 				2CF6AC5D176F7AE5002379EA /* UIColor+Hex.h in Headers */,
@@ -575,7 +560,6 @@
 				2CF6AC6D176F7B1A002379EA /* EFImageCache.h in Headers */,
 				2CF6AC6C176F7B18002379EA /* EFGraphics.h in Headers */,
 				2CF6AC6B176F7B13002379EA /* EFSQLiteObject.h in Headers */,
-				2CF6AC61176F7AF3002379EA /* UIView+Reflection.h in Headers */,
 				2CF6AC66176F7B06002379EA /* EFSynchronizedQueue.h in Headers */,
 				2CF6AC65176F7B05002379EA /* EFQueueExtended.h in Headers */,
 				2CF6AC64176F7B03002379EA /* EFQueue.h in Headers */,
@@ -588,10 +572,11 @@
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
 				9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */,
 				9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */,
-				9D88F3EAA0474B83DFD94D48 /* UIView+Utils.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
 				9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */,
 				9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */,
+				9D88F6410D85E887D991E171 /* UIView+Reflection.h in Headers */,
+				9D88F864CE9897C8547EFF77 /* UIView+Utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,12 +704,10 @@
 				2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */,
 				2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */,
 				2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */,
-				2CF6AC2E176F77BD002379EA /* SKProduct+LocalizedPrice.m in Sources */,
 				2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */,
 				2CF6AC30176F77BD002379EA /* UIImage+Edit.m in Sources */,
 				2CF6AC31176F77BD002379EA /* UIImage+Save.m in Sources */,
 				2CF6AC32176F77BD002379EA /* UIImageView+Transition.m in Sources */,
-				2CF6AC33176F77BD002379EA /* UIView+Reflection.m in Sources */,
 				2CF6AC34176F77BD002379EA /* EFPriorityQueue.m in Sources */,
 				2CF6AC35176F77BD002379EA /* EFSynchronizedQueue.m in Sources */,
 				2CF6AC36176F77BD002379EA /* EFKeyValuePair.m in Sources */,
@@ -749,9 +732,10 @@
 				9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */,
 				9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */,
 				9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */,
-				9D88F44F2EE6C724854A3FB4 /* UIView+Utils.m in Sources */,
 				9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */,
 				9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */,
+				9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */,
+				9D88FC89558F518E6C7F0F9A /* UIView+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

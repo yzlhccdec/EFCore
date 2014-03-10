@@ -143,13 +143,9 @@ static IllegalDatabaseVersionFoundHandler sHandler;
 
 - (void)inDatabase:(void (^)(FMDatabase *db))block
 {
-    DLog("read db %@", self)
     @synchronized (self) {
-        DLog("open db %@", self)
         FMDatabase *db = [self database];
-        DLog("end open db %@", self)
         block(db);
-        DLog("end read db %@", self)
 
         if ([db hasOpenResultSets]) {
             NSLog(@"Warning: there is at least one open result set around after performing [inDatabase:]");
