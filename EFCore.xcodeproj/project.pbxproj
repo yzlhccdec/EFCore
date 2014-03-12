@@ -28,7 +28,6 @@
 		2CF6AC28176F77BD002379EA /* EFViewTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC2176F77BD002379EA /* EFViewTagManager.m */; };
 		2CF6AC29176F77BD002379EA /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC6176F77BD002379EA /* NSData+AES.m */; };
 		2CF6AC2A176F77BD002379EA /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABC8176F77BD002379EA /* NSString+AES.m */; };
-		2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */; };
 		2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABCE176F77BD002379EA /* NSString+Search.m */; };
 		2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD1176F77BD002379EA /* NSURL+Additions.m */; };
 		2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF6ABD7176F77BD002379EA /* UIColor+Hex.m */; };
@@ -57,7 +56,6 @@
 		2CF6AC54176F7A77002379EA /* EFNotificationGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABB2176F77BD002379EA /* EFNotificationGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC55176F7A7F002379EA /* EFFibonacciGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABBF176F77BD002379EA /* EFFibonacciGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC56176F7A82002379EA /* EFViewTagManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC1176F77BD002379EA /* EFViewTagManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CF6AC57176F7ACC002379EA /* NSDateFormatter+Extended.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC58176F7ACE002379EA /* NSString+AES.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC7176F77BD002379EA /* NSString+AES.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABC5176F77BD002379EA /* NSData+AES.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6ABCD176F77BD002379EA /* NSString+Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -90,6 +88,7 @@
 		2CF6AC7B176F7B44002379EA /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AC1C176F77BD002379EA /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AC4F176F7956002379EA /* UIKit.framework */; };
 		2CF6ACBC1770133C002379EA /* EFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB0A176F7654002379EA /* EFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CFCDD0F18CF016E0034FC2B /* EFCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */; };
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
@@ -126,7 +125,7 @@
 /* Begin PBXFileReference section */
 		2CF6AB02176F7654002379EA /* libEFCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEFCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF6AB05176F7654002379EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFCore-Prefix.pch"; sourceTree = "<group>"; };
+		2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EFCore-Prefix.pch"; sourceTree = "<group>"; };
 		2CF6AB0A176F7654002379EA /* EFCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFCore.h; sourceTree = "<group>"; };
 		2CF6ABB2176F77BD002379EA /* EFNotificationGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFNotificationGenerator.h; sourceTree = "<group>"; };
 		2CF6ABB3176F77BD002379EA /* EFNotificationGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFNotificationGenerator.m; sourceTree = "<group>"; };
@@ -138,8 +137,6 @@
 		2CF6ABC6176F77BD002379EA /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		2CF6ABC7176F77BD002379EA /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
 		2CF6ABC8176F77BD002379EA /* NSString+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES.m"; sourceTree = "<group>"; };
-		2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Extended.h"; sourceTree = "<group>"; };
-		2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Extended.m"; sourceTree = "<group>"; };
 		2CF6ABCD176F77BD002379EA /* NSString+Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Search.h"; sourceTree = "<group>"; };
 		2CF6ABCE176F77BD002379EA /* NSString+Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Search.m"; sourceTree = "<group>"; };
 		2CF6ABD0176F77BD002379EA /* NSURL+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Additions.h"; sourceTree = "<group>"; };
@@ -318,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				2CF6ABC4176F77BD002379EA /* Encryption */,
-				2CF6ABC9176F77BD002379EA /* NSDate */,
 				2CF6ABCC176F77BD002379EA /* NSString */,
 				2CF6ABCF176F77BD002379EA /* NSURL */,
 				2CF6ABD5176F77BD002379EA /* UIColor */,
@@ -341,15 +337,6 @@
 				2CF6ABC8176F77BD002379EA /* NSString+AES.m */,
 			);
 			path = Encryption;
-			sourceTree = "<group>";
-		};
-		2CF6ABC9176F77BD002379EA /* NSDate */ = {
-			isa = PBXGroup;
-			children = (
-				2CF6ABCA176F77BD002379EA /* NSDateFormatter+Extended.h */,
-				2CF6ABCB176F77BD002379EA /* NSDateFormatter+Extended.m */,
-			);
-			path = NSDate;
 			sourceTree = "<group>";
 		};
 		2CF6ABCC176F77BD002379EA /* NSString */ = {
@@ -533,7 +520,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF6AC54176F7A77002379EA /* EFNotificationGenerator.h in Headers */,
-				2CF6AC57176F7ACC002379EA /* NSDateFormatter+Extended.h in Headers */,
 				2CF6AC55176F7A7F002379EA /* EFFibonacciGenerator.h in Headers */,
 				2CF6AC5A176F7AD6002379EA /* NSString+Search.h in Headers */,
 				2CF6AC59176F7AD0002379EA /* NSData+AES.h in Headers */,
@@ -567,6 +553,7 @@
 				2CF6AC62176F7B00002379EA /* EFComparable.h in Headers */,
 				2CF6AC58176F7ACE002379EA /* NSString+AES.h in Headers */,
 				2CF6AC56176F7A82002379EA /* EFViewTagManager.h in Headers */,
+				2CFCDD0F18CF016E0034FC2B /* EFCore-Prefix.pch in Headers */,
 				9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */,
 				9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */,
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
@@ -618,6 +605,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 2CF6AAF9176F7654002379EA;
 			productRefGroup = 2CF6AB03176F7654002379EA /* Products */;
@@ -701,7 +689,6 @@
 				2CF6AC28176F77BD002379EA /* EFViewTagManager.m in Sources */,
 				2CF6AC29176F77BD002379EA /* NSData+AES.m in Sources */,
 				2CF6AC2A176F77BD002379EA /* NSString+AES.m in Sources */,
-				2CF6AC2B176F77BD002379EA /* NSDateFormatter+Extended.m in Sources */,
 				2CF6AC2C176F77BD002379EA /* NSString+Search.m in Sources */,
 				2CF6AC2D176F77BD002379EA /* NSURL+Additions.m in Sources */,
 				2CF6AC2F176F77BD002379EA /* UIColor+Hex.m in Sources */,

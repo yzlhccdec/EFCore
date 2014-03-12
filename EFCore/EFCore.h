@@ -12,7 +12,6 @@
 #import "EFViewTagManager.h"
 #import "NSData+AES.h"
 #import "NSString+AES.h"
-#import "NSDateFormatter+Extended.h"
 #import "NSString+Search.h"
 #import "NSURL+Additions.h"
 #import "NSURL+EFAppStoreLinks.h"
