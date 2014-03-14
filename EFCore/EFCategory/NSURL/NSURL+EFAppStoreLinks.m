@@ -16,12 +16,11 @@
 
 + (NSURL *)appStoreReviewURLForApplicationIdentifier:(NSString *)identifier
 {
-    float    version = [[UIDevice currentDevice].systemVersion floatValue];
-    if (version < 7.1 && version >= 7) {
-        return [self appStoreURLForApplicationIdentifier:identifier];
-    }
+//    if (IOS_VERSION_LESS_THAN(@"7.1") && IOS_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {
+//        return [self appStoreURLForApplicationIdentifier:identifier];
+//    }
 
-    NSString *link  = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", identifier];
+    NSString *link  = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", identifier];
 
     return [NSURL URLWithString:link];
 }
