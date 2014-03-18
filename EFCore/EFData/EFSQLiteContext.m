@@ -70,7 +70,7 @@ static NSMutableDictionary *sDeleteSQLs;
         [sInsertSQLs setObject:insertSQL forKey:className];
     }
 
-    NSArray *fields = object.fieldsForPersistence;
+    NSArray *fields = [[object class] fieldsForPersistence];
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count]];
 
     for (EFKeyValuePair *pair in fields) {
@@ -114,7 +114,7 @@ static NSMutableDictionary *sDeleteSQLs;
         [sDeleteSQLs setObject:deleteSQL forKey:className];
     }
 
-    NSArray *primaryKey = object.primaryKey;
+    NSArray *primaryKey = [[object class] primaryKey];
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[primaryKey count]];
 
     for (NSString *field in primaryKey) {
@@ -151,13 +151,13 @@ static NSMutableDictionary *sDeleteSQLs;
     __block BOOL result;
 
     NSArray *fields = object.changedFields;
-    NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count] + [object.primaryKey count]];
+    NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count] + [[[object class] primaryKey] count]];
 
     for (NSString *field in fields) {
         [fieldValues addObject:[object valueForKey:field]];
     }
 
-    for (NSString *field in object.primaryKey) {
+    for (NSString *field in [[object class] primaryKey]) {
         [fieldValues addObject:[object valueForKey:field]];
     }
 
@@ -166,7 +166,7 @@ static NSMutableDictionary *sDeleteSQLs;
         result = [database executeUpdate:updateSQL withArgumentsInArray:fieldValues];
     }];
 
-    if (result == NO) {
+    if (!result) {
         NSLog(@"update object failed");
     }
     [object endModification];
@@ -178,7 +178,7 @@ static NSMutableDictionary *sDeleteSQLs;
 
 - (NSString *)buildUpdateSQL:(EFSQLiteObject *)object
 {
-    NSArray *primaryKey = object.primaryKey;
+    NSArray *primaryKey = [[object class] primaryKey];
     NSMutableString *whereClause = [[NSMutableString alloc] init];
 
     if (![primaryKey count]) {
@@ -198,14 +198,14 @@ static NSMutableDictionary *sDeleteSQLs;
         [updateFields appendString:@","];
     }
 
-    return [[NSString alloc] initWithFormat:@"UPDATE %@ SET %@ WHERE %@", object.tableName, [updateFields substringToIndex:[updateFields length] - 1], [whereClause substringToIndex:[whereClause length] - 5]];
+    return [[NSString alloc] initWithFormat:@"UPDATE %@ SET %@ WHERE %@", [[object class] tableName], [updateFields substringToIndex:[updateFields length] - 1], [whereClause substringToIndex:[whereClause length] - 5]];
 }
 
 - (NSString *)buildInsertSQL:(EFSQLiteObject *)object withConflictOption:(ConflictOption)option
 {
     NSMutableString *paramNames = [[NSMutableString alloc] init];
     NSMutableString *paramValues = [[NSMutableString alloc] init];
-    NSArray *fields = object.fieldsForPersistence;
+    NSArray *fields = [[object class] fieldsForPersistence];
 
     for (EFKeyValuePair *field in fields) {
         if ([((NSString *) field.value) rangeOfString:@"R,"].location == NSNotFound) {
@@ -245,14 +245,14 @@ static NSMutableDictionary *sDeleteSQLs;
 
     return [[NSString alloc] initWithFormat:@"INSERT %@ INTO %@(%@) VALUES(%@);",
                     optionString,
-                    object.tableName ? : @(object_getClassName(object)),
+                    [[object class] tableName] ? : @(object_getClassName(object)),
                     [paramNames substringToIndex:[paramNames length] - 1],
                     [paramValues substringToIndex:[paramValues length] - 1]];
 }
 
 - (NSString *)buildDeleteSQL:(EFSQLiteObject *)object
 {
-    NSArray *primaryKey = object.primaryKey;
+    NSArray *primaryKey = [[object class] primaryKey];
     NSMutableString *param = [[NSMutableString alloc] init];
 
     if (![primaryKey count]) {
@@ -264,7 +264,7 @@ static NSMutableDictionary *sDeleteSQLs;
         }
     }
 
-    return [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE %@", object.tableName ? : @(object_getClassName(object)), [param substringToIndex:[param length] - 5]];
+    return [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE %@", [[object class] tableName] ? : @(object_getClassName(object)), [param substringToIndex:[param length] - 5]];
 }
 
 @end

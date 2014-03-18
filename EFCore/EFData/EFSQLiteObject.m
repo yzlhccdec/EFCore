@@ -8,13 +8,15 @@
 #define DLog(...)
 
 #import <objc/runtime.h>
+#import <FMDB/FMResultSet.h>
 #import "EFSQLiteObject.h"
 #import "EFKeyValuePair.h"
+#import "EFSQLiteObject+EFPrivate.h"
 
-@interface EFSQLiteObject () {
+@interface EFSQLiteObject ()
+{
     NSMutableArray *_changedProperties;
-    BOOL _isKVORegistered;
-    NSArray *_fieldsForPersistence;
+    BOOL           _isKVORegistered;
 }
 
 - (void)registerForKVO;
@@ -23,43 +25,98 @@
 
 @end
 
+static NSMutableDictionary *sFieldProperties;
+static NSDictionary        *sPrimitivesNames;
+
 @implementation EFSQLiteObject
+
++ (void)initialize
+{
+    if ([self class] == [EFSQLiteObject class]) {
+        sFieldProperties = [NSMutableDictionary dictionary];
+        sPrimitivesNames = @{
+                @"f" : @"float",
+                @"i" : @"int",
+                @"d" : @"double",
+                @"l" : @"long",
+                @"c" : @"BOOL",
+                @"s" : @"short",
+                @"q" : @"long",
+                //and some famos aliases of primitive types
+                // BOOL is now "B" on iOS __LP64 builds
+                @"I" : @"NSInteger",
+                @"Q" : @"NSUInteger",
+                @"B" : @"BOOL"};
+    } else {
+        [self __inspectProperties];
+    }
+}
+
+- (id)initWithFMResultSet:(FMResultSet *)resultSet
+{
+    self = [super init];
+    if (self) {
+        for (EFKeyValuePair *field in [[self class] fieldsForPersistence]) {
+            id value = resultSet[field.key];
+            if (value != nil && value != [NSNull null]) {
+                [self setValue:value forKey:field.key];
+            }
+        }
+    }
+
+    return self;
+}
 
 - (NSArray *)changedFields
 {
     return _changedProperties;
 }
 
-- (NSArray *)fieldsForPersistence
++ (NSSet *)excludedFields
 {
-    if (!_fieldsForPersistence) {
-        NSMutableArray *propertyList = [[NSMutableArray alloc] init];
-        Class class = [self class];
+    return nil;
+}
 
-        while (class != [EFSQLiteObject class]) {
-            NSUInteger count;
-            objc_property_t *properties = class_copyPropertyList(class, &count);
++ (NSArray *)fieldsForPersistence
+{
+    return [sFieldProperties[NSStringFromClass([self class])] allValues];
+}
 
-            NSArray *excludedProperties = self.excludedFields;
-            NSMutableArray *addedProperties = [[NSMutableArray alloc] init];
++ (NSArray *)primaryKey
+{
+    [NSException raise:@"Invalid Primary Key" format:@"No primary key defined in %@", self];
+    return nil;
+}
 
-            for (int i = 0; i < count; i++) {
-                EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
-                if (![excludedProperties containsObject:pair.key] && ![addedProperties containsObject:pair.key]) {
-                    [propertyList addObject:pair];
-                    [addedProperties addObject:pair.key];
-                }
-            }
++ (NSString *)tableName
+{
+    return NSStringFromClass([self class]);
+}
 
-            free(properties);
-
-            class = [class superclass];
-        }
-
-        _fieldsForPersistence = propertyList;
++ (void)__inspectProperties
+{
+    NSMutableDictionary *propertyIndex = [sFieldProperties[NSStringFromClass([self superclass])] mutableCopy];
+    if (propertyIndex == nil) {
+        propertyIndex = [[NSMutableDictionary alloc] init];
     }
 
-    return _fieldsForPersistence;
+    Class class                 = [self class];
+
+    NSUInteger      count;
+    objc_property_t *properties = class_copyPropertyList(class, &count);
+
+    NSSet *excludedProperties = [self excludedFields];
+
+    for (int i = 0; i < count; i++) {
+        EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
+        if (![excludedProperties containsObject:pair.key]) {
+            propertyIndex[pair.key] = pair;
+        }
+    }
+
+    free(properties);
+
+    sFieldProperties[NSStringFromClass([self class])] = propertyIndex;
 }
 
 - (void)startModification
@@ -85,24 +142,26 @@
 {
     DLog("register");
     _isKVORegistered = YES;
-    NSArray *observableKeyPaths = self.fieldsForPersistence;
+    NSArray             *observableKeyPaths = [[self class] fieldsForPersistence];
     for (EFKeyValuePair *pair in observableKeyPaths) {
         [self addObserver:self forKeyPath:pair.key options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
-- (void)unregisterFromKVO {
+- (void)unregisterFromKVO
+{
     DLog("unregister");
     _isKVORegistered = NO;
-    NSArray *observableKeypaths = self.fieldsForPersistence;
-    for (EFKeyValuePair *pair in observableKeypaths) {
+    NSArray             *observableKeyPaths = [[self class] fieldsForPersistence];
+    for (EFKeyValuePair *pair in observableKeyPaths) {
         [self removeObserver:self forKeyPath:pair.key];
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    for (EFKeyValuePair *pair in self.fieldsForPersistence) {
-        if ([((NSString *) pair.key) isEqualToString:keyPath] && ![self.primaryKey containsObject:keyPath]) {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    for (EFKeyValuePair *pair in [[self class] fieldsForPersistence]) {
+        if ([((NSString *) pair.key) isEqualToString:keyPath] && ![[[self class] primaryKey] containsObject:keyPath]) {
             [_changedProperties addObject:keyPath];
         }
     }

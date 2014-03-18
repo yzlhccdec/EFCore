@@ -6,20 +6,25 @@
 
 
 #import <Foundation/Foundation.h>
+#import "FMDatabase.h"
 
 #define FieldName(property) [[@(#property) componentsSeparatedByString: @"."] lastObject]
 
 @interface EFSQLiteObject : NSObject
 
-@property(nonatomic, readonly) NSArray *excludedFields;
 @property(nonatomic, readonly) NSArray *changedFields;
-@property(nonatomic, readonly, getter=fieldsForPersistence) NSArray *fieldsForPersistence;
-@property(nonatomic, readonly) NSArray *primaryKey;
-@property(nonatomic, readonly) NSString *tableName;
+
+- (id)initWithFMResultSet:(FMResultSet *)resultSet;
 
 - (void)startModification;
 
 - (void)endModification;
 
++ (NSSet *)excludedFields;
 
++ (NSArray *)fieldsForPersistence;
+
++ (NSArray *)primaryKey;
+
++ (NSString *)tableName;
 @end
