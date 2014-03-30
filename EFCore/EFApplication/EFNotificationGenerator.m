@@ -7,105 +7,122 @@
 
 #import "EFNotificationGenerator.h"
 #import "EFFibonacciGenerator.h"
+#import "NSFileManager+SystemDirectory.h"
 
 #define INTERVAL_ONEDAY   (24*60*60)
 
 static EFFibonacciGenerator *sFibonacciGenerator;
 
-static NSString *const kNotificationGeneratorPrefix = @"notificationGen_";
+static NSString *const kNotificationFileName = @"notificationGen.dat";
+static NSMutableDictionary *sData;
+static dispatch_queue_t    sQueue;
 
-@interface EFNotificationGenerator () {
+@implementation EFNotificationGenerator
+{
     id <EFIntervalGenerator> _intervalGenerator;
-    NSTimeInterval _nextDate;
-    NSInteger _index;
-    NSString *_serviceName;
+    NSTimeInterval           _nextTime;
+    NSInteger                _index;
+    NSString                 *_serviceName;
 }
-
-- (void)save;
-
-@end
-
-@implementation  EFNotificationGenerator
 
 + (void)initialize
 {
     sFibonacciGenerator = [[EFFibonacciGenerator alloc] init];
+    NSString *absolutePath = [[NSFileManager cachesDirectory] stringByAppendingPathComponent:kNotificationFileName];
+    sData = [[NSMutableDictionary alloc] initWithContentsOfFile:absolutePath];
+    if (sData == nil) {
+        sData = [[NSMutableDictionary alloc] init];
+    }
+
+    sQueue = dispatch_queue_create("com.aaronyi.EFNotificationGenerator", DISPATCH_QUEUE_CONCURRENT);
 }
 
 - (id)initWithServiceName:(NSString *)serviceName
 {
-    return [self initWithServiceName:serviceName andIntervalGenerator:sFibonacciGenerator];
+    return [self initWithServiceName:serviceName intervalGenerator:sFibonacciGenerator];
 }
 
-- (id)initWithServiceName:(NSString *)serviceName andIntervalGenerator:(id <EFIntervalGenerator>)intervalGenerator
+- (id)initWithServiceName:(NSString *)serviceName intervalGenerator:(id <EFIntervalGenerator>)intervalGenerator
 {
     self = [super init];
 
     if (self) {
-        _serviceName = [kNotificationGeneratorPrefix stringByAppendingString:serviceName];
+        _generatorType     = EFNotificationGeneratorTypeDate;
         _intervalGenerator = intervalGenerator;
+        _serviceName       = serviceName;
 
-        if (!_dataSource) {
-            NSString *data = [[NSUserDefaults standardUserDefaults] objectForKey:_serviceName];
+        __block NSString *data;
 
-            if ([data length]) {
-                NSArray *array = [data componentsSeparatedByString: @","];
-                _nextDate = [[array objectAtIndex:0] doubleValue];
-                _index = [[array objectAtIndex:1] integerValue];
-            } else {
-                _nextDate = _index = -1;
-            }
-        } else {
-            [_dataSource loadNextDate:&_nextDate AndIndex:&_index ForService:_serviceName];
+        dispatch_sync(sQueue, ^{
+            data = sData[serviceName];
+        });
+
+        if ([data length]) {
+            NSArray *array = [data componentsSeparatedByString:@","];
+            _nextTime = [[array objectAtIndex:0] doubleValue];
+            _index    = [[array objectAtIndex:1] integerValue];
         }
     }
 
     return self;
 }
 
-- (BOOL)showNotification
+- (BOOL)shouldShowNotification
 {
-    if (_nextDate == -1) {
-        return YES;
+    if (_index == 0) {
+        [self calculateNext];
     }
 
-    if (_nextDate == 0) {
+    if (_nextTime == -1) {
         return NO;
     }
 
-    return _nextDate <= [[NSDate date] timeIntervalSince1970];
+    return _generatorType == EFNotificationGeneratorTypeTimes ?
+           _nextTime <= [_dataSource currentValueForService:_serviceName] : _nextTime <= [[NSDate date] timeIntervalSince1970];
 }
 
 - (void)reset
 {
-    _nextDate = _index = -1;
-    [self save];
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:_serviceName];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
+    _index = 0;
+
+    [self calculateNext];
 }
 
 - (void)calculateNext
 {
-    _index++;
-    NSTimeInterval interval = [_intervalGenerator getInterval:_index];
-    _nextDate = interval == -1 ? 0 : [[NSDate date] timeIntervalSince1970] + interval * INTERVAL_ONEDAY;
+    NSInteger interval = [_intervalGenerator getInterval:_index++];
 
-    [self save];
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"yyyy-MM-dd"];
-//    DLog("next date for service %@ is %@", _serviceName, [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:_nextDate]])
+    if (interval <= -1) {
+        _nextTime = -1;
+    } else if (_generatorType == EFNotificationGeneratorTypeTimes) {
+        _nextTime = [_dataSource currentValueForService:_serviceName] + interval;
+    } else {
+        _nextTime = [[NSDate date] timeIntervalSince1970] + interval * INTERVAL_ONEDAY;
+    }
+
+    __weak EFNotificationGenerator *weakSelf = self;
+
+    dispatch_barrier_sync(sQueue, ^{
+        [weakSelf __save];
+    });
+
+#ifdef DEBUG
+    if (_generatorType == EFNotificationGeneratorTypeTimes) {
+        NSLog(@"next time for service %@ is %f", _serviceName, _nextTime);
+    } else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSLog(@"next date for service %@ is %@", _serviceName, [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:_nextTime]]);
+    }
+
+#endif
 }
 
-#pragma mark - private
-
-- (void)save
+- (void)__save
 {
-    if (!_dataSource) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%f,%d", _nextDate, _index] forKey:_serviceName];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        [_dataSource saveNextDate:_nextDate AndIndex:_index ForService:_serviceName];
-    }
+    sData[_serviceName] = [NSString stringWithFormat:@"%f,%d", _nextTime, _index];
+    NSString *absolutePath = [[NSFileManager cachesDirectory] stringByAppendingPathComponent:kNotificationFileName];
+    [sData writeToFile:absolutePath atomically:YES];
 }
 
 @end

@@ -12,7 +12,7 @@
 /**
 * get an interval between the occurrence of two notifications
 * @param index the index'th element in the interval series
-* @return interval(day) or -1(forever)
+* @return interval(day/times) or -1(forever)
 */
 - (NSInteger)getInterval:(NSInteger)index;
 
@@ -20,21 +20,30 @@
 
 @protocol EFNotificationGeneratorDataSource
 
-- (void)loadNextDate:(NSTimeInterval *)nextDate AndIndex:(NSInteger *)index ForService:(NSString *)serviceName;
-- (void)saveNextDate:(NSTimeInterval)nextDate AndIndex:(NSInteger)index ForService:(NSString *)serviceName;
+@required
+- (NSUInteger)currentValueForService:(NSString *)serviceName;
 
 @end
+
+typedef NS_ENUM(char, EFNotificationGeneratorType) {
+    EFNotificationGeneratorTypeTimes,           // depends on use times
+    EFNotificationGeneratorTypeDate,            // depends on date
+};
 
 @interface EFNotificationGenerator : NSObject {
 }
 
 @property (nonatomic, weak) id<EFNotificationGeneratorDataSource> dataSource;
-
+@property (nonatomic, assign) EFNotificationGeneratorType generatorType;
+/**
+* @param serviceName name used for distinguishing modules
+* @param type type is only used for the first time after this instance initialized or reset
+*/
 - (id)initWithServiceName:(NSString *)serviceName;
 
-- (id)initWithServiceName:(NSString *)serviceName andIntervalGenerator:(id <EFIntervalGenerator>)intervalGenerator;
+- (id)initWithServiceName:(NSString *)serviceName intervalGenerator:(id <EFIntervalGenerator>)intervalGenerator;
 
-- (BOOL)showNotification;
+- (BOOL)shouldShowNotification;
 
 - (void)reset;
 

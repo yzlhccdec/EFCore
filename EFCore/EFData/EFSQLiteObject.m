@@ -26,7 +26,6 @@
 @end
 
 static NSMutableDictionary *sFieldProperties;
-static NSDictionary        *sPrimitivesNames;
 
 @implementation EFSQLiteObject
 
@@ -34,19 +33,6 @@ static NSDictionary        *sPrimitivesNames;
 {
     if ([self class] == [EFSQLiteObject class]) {
         sFieldProperties = [NSMutableDictionary dictionary];
-        sPrimitivesNames = @{
-                @"f" : @"float",
-                @"i" : @"int",
-                @"d" : @"double",
-                @"l" : @"long",
-                @"c" : @"BOOL",
-                @"s" : @"short",
-                @"q" : @"long",
-                //and some famos aliases of primitive types
-                // BOOL is now "B" on iOS __LP64 builds
-                @"I" : @"NSInteger",
-                @"Q" : @"NSUInteger",
-                @"B" : @"BOOL"};
     } else {
         [self __inspectProperties];
     }
