@@ -27,14 +27,16 @@ static dispatch_queue_t    sQueue;
 
 + (void)initialize
 {
-    sFibonacciGenerator = [[EFFibonacciGenerator alloc] init];
-    NSString *absolutePath = [[NSFileManager cachesDirectory] stringByAppendingPathComponent:kNotificationFileName];
-    sData = [[NSMutableDictionary alloc] initWithContentsOfFile:absolutePath];
-    if (sData == nil) {
-        sData = [[NSMutableDictionary alloc] init];
-    }
+    if (self == [EFNotificationGenerator class]) {
+        sFibonacciGenerator = [[EFFibonacciGenerator alloc] init];
+        NSString *absolutePath = [[NSFileManager cachesDirectory] stringByAppendingPathComponent:kNotificationFileName];
+        sData = [[NSMutableDictionary alloc] initWithContentsOfFile:absolutePath];
+        if (sData == nil) {
+            sData = [[NSMutableDictionary alloc] init];
+        }
 
-    sQueue = dispatch_queue_create("com.aaronyi.EFNotificationGenerator", DISPATCH_QUEUE_CONCURRENT);
+        sQueue = dispatch_queue_create("com.aaronyi.EFNotificationGenerator", DISPATCH_QUEUE_CONCURRENT);
+    }
 }
 
 - (id)initWithServiceName:(NSString *)serviceName
