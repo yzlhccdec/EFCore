@@ -95,7 +95,6 @@
 		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F74105C927DC725C674B /* NSString+URLEncode.m */; };
 		9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F6410D85E887D991E171 /* UIView+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2A0D1BF9E986E4DC1DA /* UIView+Reflection.h */; };
 		9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */; };
 		9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */; };
@@ -108,7 +107,6 @@
 		9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FEED81CA3025DB5D3F96 /* UIView+Reflection.m */; };
 		9D88FC89558F518E6C7F0F9A /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */; };
 		9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */; };
-		9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */; };
 		D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E0E813F3C949FE9E87A6F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -206,8 +204,6 @@
 		9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SystemDirectory.h"; sourceTree = "<group>"; };
 		9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+EFAppStoreLinks.h"; sourceTree = "<group>"; };
 		9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ImageContent.h"; sourceTree = "<group>"; };
-		9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PRTween+Transform.h"; sourceTree = "<group>"; };
-		9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PRTween+Transform.m"; sourceTree = "<group>"; };
 		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
 		9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EFFileAttributes.m"; sourceTree = "<group>"; };
 		9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EFFileAttributes.h"; sourceTree = "<group>"; };
@@ -325,7 +321,6 @@
 				9D88FE4E01FFE832E586BFCC /* NSCache */,
 				9D88F4C32164636B6C89D038 /* NSFileManager */,
 				9D88FE6C7882330697553CED /* CALayer */,
-				9D88FCC50BC6725E8AB7DC26 /* PRTween */,
 			);
 			path = EFCategory;
 			sourceTree = "<group>";
@@ -487,15 +482,6 @@
 			path = NSFileManager;
 			sourceTree = "<group>";
 		};
-		9D88FCC50BC6725E8AB7DC26 /* PRTween */ = {
-			isa = PBXGroup;
-			children = (
-				9D88FAE4F650FBDBF5C44F18 /* PRTween+Transform.h */,
-				9D88FB72F5045E1FA661E3A0 /* PRTween+Transform.m */,
-			);
-			path = PRTween;
-			sourceTree = "<group>";
-		};
 		9D88FE4E01FFE832E586BFCC /* NSCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,7 +546,6 @@
 				9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */,
 				9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */,
 				9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */,
-				9D88F632E9B782C4391932B4 /* PRTween+Transform.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
 				9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */,
 				9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */,
@@ -720,7 +705,6 @@
 				9D88F82821FE6FC79CEED6BE /* EFEventHandlerList.m in Sources */,
 				9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */,
 				9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */,
-				9D88FF7C1CC3214CAC01606E /* PRTween+Transform.m in Sources */,
 				9D88F7F3DD94369ADAB49CB0 /* NSURL+EFAppStoreLinks.m in Sources */,
 				9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */,
 				9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */,
