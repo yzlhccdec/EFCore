@@ -15,7 +15,6 @@
 #import "NSString+Search.h"
 #import "NSURL+Additions.h"
 #import "NSURL+EFAppStoreLinks.h"
-#import "SKProduct+LocalizedPrice.h"
 #import "UIColor+Hex.h"
 #import "UIImage+Edit.h"
 #import "UIImage+Save.h"
@@ -49,3 +48,4 @@
 #import "CALayer+ImageContent.h"
 #import "NSString+URLEncode.h"
 #import "UIView+Utils.h"
+#import "UIResponder+EFCustomizeAction.h"

@@ -25,4 +25,7 @@
 
 + (UIColor *)colorWithRGBHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
 
+- (UIColor *)blackOrWhiteContrastingColor;
+
+- (CGFloat)luminosity;
 @end

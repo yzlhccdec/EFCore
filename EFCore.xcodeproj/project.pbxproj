@@ -93,6 +93,7 @@
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
 		9D88F4201325DB7AFB1C9FE4 /* EFEventHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D88F45B066BB67D7D1B688D /* UIResponder+EFCustomizeAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FC3EC24168F1E0A301DC /* UIResponder+EFCustomizeAction.h */; };
 		9D88F55E799DAFB5DE4B935C /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F74105C927DC725C674B /* NSString+URLEncode.m */; };
 		9D88F5DF9D573154406D6436 /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88FF417D0F2FD9A3D45357 /* NSString+URLEncode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F6410D85E887D991E171 /* UIView+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2A0D1BF9E986E4DC1DA /* UIView+Reflection.h */; };
@@ -106,6 +107,7 @@
 		9D88FA0D5B6FB0D8BC5A60CD /* NSFileManager+SystemDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F7B37E3BABDEA9A41A8C /* NSFileManager+SystemDirectory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FEED81CA3025DB5D3F96 /* UIView+Reflection.m */; };
 		9D88FC89558F518E6C7F0F9A /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */; };
+		9D88FCFCE642AF09E3DDCA99 /* UIResponder+EFCustomizeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F5B78F2F9817743A45B6 /* UIResponder+EFCustomizeAction.m */; };
 		9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */; };
 		D59F63FCC021440FAA201E3B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E0E813F3C949FE9E87A6F0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -198,6 +200,7 @@
 		9D88F30F3063A3A3934D772F /* NSCache+SharedCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCache+SharedCache.m"; path = "EFCore/EFCollection/NSCache+SharedCache.m"; sourceTree = SOURCE_ROOT; };
 		9D88F37168715D7D49028E6B /* EFEventHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFEventHandlerList.m; path = EFCore/EFUtil/EFEventHandlerList.m; sourceTree = SOURCE_ROOT; };
 		9D88F398831F735E957C99D0 /* NSURL+EFAppStoreLinks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+EFAppStoreLinks.m"; sourceTree = "<group>"; };
+		9D88F5B78F2F9817743A45B6 /* UIResponder+EFCustomizeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+EFCustomizeAction.m"; sourceTree = "<group>"; };
 		9D88F6A350F49DA8E0F45558 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		9D88F71B945BAFA89AB3AF00 /* EFCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; path = EFCore.podspec; sourceTree = SOURCE_ROOT; };
 		9D88F74105C927DC725C674B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
@@ -205,6 +208,7 @@
 		9D88F866564608DA41EA9EF6 /* NSURL+EFAppStoreLinks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+EFAppStoreLinks.h"; sourceTree = "<group>"; };
 		9D88FAD99F49EE87CA91B152 /* CALayer+ImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+ImageContent.h"; sourceTree = "<group>"; };
 		9D88FB8D9364EA3E6317BECA /* EFEventHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFEventHandlerList.h; path = EFCore/EFUtil/EFEventHandlerList.h; sourceTree = SOURCE_ROOT; };
+		9D88FC3EC24168F1E0A301DC /* UIResponder+EFCustomizeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+EFCustomizeAction.h"; sourceTree = "<group>"; };
 		9D88FD339F7BEEDCEED48CA0 /* NSFileManager+EFFileAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+EFFileAttributes.m"; sourceTree = "<group>"; };
 		9D88FE4249231D69D4C3A186 /* NSFileManager+EFFileAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+EFFileAttributes.h"; sourceTree = "<group>"; };
 		9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+ImageContent.m"; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				9D88FE4E01FFE832E586BFCC /* NSCache */,
 				9D88F4C32164636B6C89D038 /* NSFileManager */,
 				9D88FE6C7882330697553CED /* CALayer */,
+				9D88FAC2A031393205768F27 /* UIResponder */,
 			);
 			path = EFCategory;
 			sourceTree = "<group>";
@@ -482,6 +487,15 @@
 			path = NSFileManager;
 			sourceTree = "<group>";
 		};
+		9D88FAC2A031393205768F27 /* UIResponder */ = {
+			isa = PBXGroup;
+			children = (
+				9D88FC3EC24168F1E0A301DC /* UIResponder+EFCustomizeAction.h */,
+				9D88F5B78F2F9817743A45B6 /* UIResponder+EFCustomizeAction.m */,
+			);
+			path = UIResponder;
+			sourceTree = "<group>";
+		};
 		9D88FE4E01FFE832E586BFCC /* NSCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +565,7 @@
 				9D88F73F256D261E471A7C0A /* NSFileManager+EFFileAttributes.h in Headers */,
 				9D88F6410D85E887D991E171 /* UIView+Reflection.h in Headers */,
 				9D88F864CE9897C8547EFF77 /* UIView+Utils.h in Headers */,
+				9D88F45B066BB67D7D1B688D /* UIResponder+EFCustomizeAction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +724,7 @@
 				9D88F8E5A8395BF651C27AE6 /* NSFileManager+EFFileAttributes.m in Sources */,
 				9D88FA1A9014A32BB011750D /* UIView+Reflection.m in Sources */,
 				9D88FC89558F518E6C7F0F9A /* UIView+Utils.m in Sources */,
+				9D88FCFCE642AF09E3DDCA99 /* UIResponder+EFCustomizeAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
