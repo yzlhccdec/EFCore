@@ -4,6 +4,7 @@
 //
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import <EFCore/EFRuntime.h>
 #import "UIResponder+EFCustomizeAction.h"
 
 static char ActionDelegate;
@@ -49,13 +50,15 @@ const char * prefix = "EFCustomizeAction_";
             subclass = objc_allocateClassPair(superClass, [subclassName UTF8String], 0);
             if (subclass != nil) {
                 IMP canPerformAction = class_getMethodImplementation([self class], @selector(__canPerformAction:withSender:));
+                IMP class = class_getMethodImplementation([self class], @selector(__class));
 
                 class_addMethod(subclass, @selector(canPerformAction:withSender:), canPerformAction, method_getTypeEncoding(class_getInstanceMethod(superClass, @selector(canPerformAction:withSender:))));
+                class_addMethod(subclass, @selector(class), class, method_getTypeEncoding(class_getInstanceMethod(superClass, @selector(class))));
                 objc_registerClassPair(subclass);
 
                 object_setClass(self, subclass);
             } else {
-                NSLog(@"can't subclass %@", subclass);
+                DLog(@"can't subclass %@", subclass);
             }
         } else {
             object_setClass(self, subclass);
@@ -76,8 +79,12 @@ const char * prefix = "EFCustomizeAction_";
     struct objc_super obS;
     obS.receiver = self;
     obS.super_class = [self superclass];
-    return [objc_msgSendSuper(&obS, @selector(__canPerformAction:withSender:), action, sender) boolValue];
+    return [objc_msgSendSuper(&obS, @selector(canPerformAction:withSender:), action, sender) boolValue];
 }
 
+- (Class)__class
+{
+    return class_getSuperclass(object_getClass(self));
+}
 
 @end
