@@ -30,12 +30,27 @@ static NSMutableDictionary *sDeleteSQLs;
 
 + (void)initialize
 {
-    [super initialize];
-    sUpdateSQLs = [[NSMutableDictionary alloc] init];
-    sInsertSQLs = [[NSMutableDictionary alloc] init];
-    sDeleteSQLs = [[NSMutableDictionary alloc] init];
+    if (self == [EFSQLiteContext class]) {
+        sUpdateSQLs = [[NSMutableDictionary alloc] init];
+        sInsertSQLs = [[NSMutableDictionary alloc] init];
+        sDeleteSQLs = [[NSMutableDictionary alloc] init];
+    }
 }
 
+
+- (id)init
+{
+    [NSException raise:@"EFSQLiteContext Error" format:@"use initWithHelper: to create context"];
+}
+
+- (id)initWithHelper:(EFSQLiteHelper *)helper
+{
+    self = [super init];
+    if (self) {
+        _helper = helper;
+    }
+    return self;
+}
 
 - (BOOL)addObject:(EFSQLiteObject *)object
 {
@@ -75,7 +90,7 @@ static NSMutableDictionary *sDeleteSQLs;
 
     for (EFKeyValuePair *pair in fields) {
         if ([((NSString *) pair.value) rangeOfString:@"R,"].location == NSNotFound) {
-            [fieldValues addObject:[object valueForKey:pair.key]];
+            [fieldValues addObject:[object valueForKey:pair.key] ? : [NSNull null]];
         }
     }
 

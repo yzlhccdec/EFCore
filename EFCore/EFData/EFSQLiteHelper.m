@@ -188,7 +188,7 @@ static IllegalDatabaseVersionFoundHandler sHandler;
 
 - (void)onOpen:(FMDatabase *)database;
 {
-    [NSException raise:@"Illegal function call" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
+    [NSException raise:@"EFSQLiteHelper Error" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
 }
 
 - (NSUInteger)version:(FMDatabase *)database
@@ -199,6 +199,26 @@ static IllegalDatabaseVersionFoundHandler sHandler;
 - (void)setVersion:(NSUInteger)version database:(FMDatabase *)database
 {
     [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %d", version]];
+}
+
+- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias
+{
+    __block BOOL result;
+    [self inDatabase:^(FMDatabase *database) {
+        result =[database executeUpdate:[NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]]];
+    }];
+
+    return result;
+}
+
+- (BOOL)detachDatabase:(NSString *)alias
+{
+    __block BOOL result;
+    [self inDatabase:^(FMDatabase *database) {
+        result =[database executeUpdate:[NSString stringWithFormat:@"DETACH DATABASE %s", [alias UTF8String]]];
+    }];
+
+    return result;
 }
 
 - (void)dealloc

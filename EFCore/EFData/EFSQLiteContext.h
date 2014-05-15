@@ -19,9 +19,11 @@ typedef enum {
 } ConflictOption;
 
 
-@interface EFSQLiteContext : NSObject {
-    EFSQLiteHelper *_helper;
-}
+@interface EFSQLiteContext : NSObject
+
+@property (nonatomic, readonly) EFSQLiteHelper *helper;
+
+- (id)initWithHelper:(EFSQLiteHelper *)helper;
 
 - (BOOL)addObject:(EFSQLiteObject *)object;
 
