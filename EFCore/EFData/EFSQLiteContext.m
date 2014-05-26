@@ -5,6 +5,7 @@
 //
 
 
+#import <objc/runtime.h>
 #import "EFSQLiteContext.h"
 #import "EFSQLiteObject.h"
 #import "EFSQLiteHelper.h"
@@ -187,6 +188,33 @@ static NSMutableDictionary *sDeleteSQLs;
     [object endModification];
 
     return result;
+}
+
+- (NSArray *)getObjects:(Class)objectClass query:(NSString *)query, ...
+{
+    for (Class tcls = class_getSuperclass(objectClass); tcls; tcls = class_getSuperclass(tcls)) {
+        if (tcls == [EFSQLiteObject class]) {
+            NSMutableArray *result = [[NSMutableArray alloc] init];
+
+            va_list args;
+            va_start(args, query);
+
+            [self.helper inDatabase:^(FMDatabase *database) {
+                FMResultSet *resultSet = [database executeQuery:query withVAList:args];
+
+                while ([resultSet next]) {
+                    id item = [[objectClass alloc] initWithFMResultSet:resultSet];
+                    [result addObject:item];
+                }
+            }];
+
+            va_end(args);
+
+            return result;
+        }
+    }
+
+    [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([self class])] format:@"object must be a subclass of EFSQLiteObject"];
 }
 
 #pragma mark - private

@@ -95,11 +95,10 @@ static NSMutableDictionary *sFieldProperties;
 
     for (int i = 0; i < count; i++) {
         EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
-        if (![excludedProperties containsObject:pair.key]) {
-            propertyIndex[pair.key] = pair;
-        }
+        propertyIndex[pair.key] = pair;
     }
 
+    [propertyIndex removeObjectsForKeys:excludedProperties.allObjects];
     free(properties);
 
     sFieldProperties[NSStringFromClass([self class])] = propertyIndex;

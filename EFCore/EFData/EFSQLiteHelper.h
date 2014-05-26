@@ -15,6 +15,10 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
     FMDatabase *_database;
 }
 
+@property (nonatomic, copy) IllegalDatabaseVersionFoundHandler illegalDatabaseVersionFoundHandler;
+@property (nonatomic, copy) NSString *encryptionKey;
+
+
 - (id)initWithPath:(NSString *)path andVersion:(NSUInteger)version;
 
 - (void)close;
@@ -25,7 +29,7 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
 
 - (void)inTransaction:(void (^)(FMDatabase *, BOOL *))block;
 
-- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias;
+- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password;
 
 - (BOOL)detachDatabase:(NSString *)alias;
 
@@ -35,5 +39,6 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
 
 - (void)onCreate:(FMDatabase *)database;
 
-+ (void)addIllegalDatabaseVersionFoundHandler:(IllegalDatabaseVersionFoundHandler)block;
+- (FMDatabase *)onPasswordErrorWithDBFilePath:(NSString *)dbFilePath;
+
 @end

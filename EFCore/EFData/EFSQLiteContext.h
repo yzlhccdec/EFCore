@@ -37,4 +37,5 @@ typedef enum {
 
 - (BOOL)updateObject:(EFSQLiteObject *)object;
 
+- (NSArray *)getObjects:(Class)objectClass query:(NSString *)query, ...;
 @end

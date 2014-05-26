@@ -27,8 +27,6 @@
 
 @end
 
-static IllegalDatabaseVersionFoundHandler sHandler;
-
 @implementation EFSQLiteHelper
 
 - (id)init
@@ -54,7 +52,7 @@ static IllegalDatabaseVersionFoundHandler sHandler;
         return _database;
     }
 
-    BOOL success = false;
+    BOOL success = NO;
     FMDatabase *database = nil;
 
     @try {
@@ -63,11 +61,25 @@ static IllegalDatabaseVersionFoundHandler sHandler;
         if ([database open]) {
             //we don't need to check version when using temporary or in-memory database
             if ([_path length]) {
+
+                if ([_encryptionKey length] > 0)
+                {
+                    [database setKey:_encryptionKey];
+                    if (![database goodConnection])
+                    {
+                        database = [self onPasswordErrorWithDBFilePath:_path];
+                        if (database == nil)
+                        {
+                            [NSException raise:@"Database Password Error" format:@"Password Error"];
+                        }
+                    }
+                }
+
                 NSUInteger version = [self version:database];
 
                 if (version > _version) {
-                    if (sHandler) {
-                        sHandler(version, _version);
+                    if (_illegalDatabaseVersionFoundHandler) {
+                        _illegalDatabaseVersionFoundHandler(version, _version);
                         return nil;
                     }
 
@@ -122,9 +134,9 @@ static IllegalDatabaseVersionFoundHandler sHandler;
     [NSException raise:@"Illegal function call" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
 }
 
-+ (void)addIllegalDatabaseVersionFoundHandler:(void (^)(NSInteger, NSInteger))block
+- (FMDatabase *)onPasswordErrorWithDBFilePath:(NSString *)dbFilePath
 {
-    sHandler = [block copy];
+    [NSException raise:@"Illegal function call" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
 }
 
 
@@ -201,11 +213,13 @@ static IllegalDatabaseVersionFoundHandler sHandler;
     [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %d", version]];
 }
 
-- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias
+- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password
 {
     __block BOOL result;
     [self inDatabase:^(FMDatabase *database) {
-        result =[database executeUpdate:[NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]]];
+        result = [database executeUpdate:[password length] ?
+                                         [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s KEY '%s'", [path UTF8String], [alias UTF8String], [password UTF8String]]
+                                       : [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]]];
     }];
 
     return result;
@@ -215,7 +229,7 @@ static IllegalDatabaseVersionFoundHandler sHandler;
 {
     __block BOOL result;
     [self inDatabase:^(FMDatabase *database) {
-        result =[database executeUpdate:[NSString stringWithFormat:@"DETACH DATABASE %s", [alias UTF8String]]];
+        result = [database executeUpdate:[NSString stringWithFormat:@"DETACH DATABASE %s", [alias UTF8String]]];
     }];
 
     return result;
