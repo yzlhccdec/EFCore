@@ -88,7 +88,7 @@ static NSMutableDictionary *sFieldProperties;
 
     Class class                 = [self class];
 
-    NSUInteger      count;
+    unsigned int      count;
     objc_property_t *properties = class_copyPropertyList(class, &count);
 
     NSSet *excludedProperties = [self excludedFields];

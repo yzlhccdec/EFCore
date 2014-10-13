@@ -198,9 +198,11 @@ static NSMutableDictionary *sDeleteSQLs;
 
             va_list args;
             va_start(args, query);
+            va_list *argsReference = &args;
 
             [self.helper inDatabase:^(FMDatabase *database) {
-                FMResultSet *resultSet = [database executeQuery:query withVAList:args];
+
+                FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
 
                 while ([resultSet next]) {
                     id item = [[objectClass alloc] initWithFMResultSet:resultSet];

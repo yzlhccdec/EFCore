@@ -49,3 +49,7 @@
 #import "NSString+URLEncode.h"
 #import "UIView+Utils.h"
 #import "UIResponder+EFCustomizeAction.h"
+#import "NSString+Path.h"
+#import "NSBundle+EFExtension.h"
+#import "NSFileManager+EFFileAttributes.h"
+
