@@ -42,6 +42,7 @@ static NSMutableDictionary *sDeleteSQLs;
 - (id)init
 {
     [NSException raise:@"EFSQLiteContext Error" format:@"use initWithHelper: to create context"];
+    return nil;
 }
 
 - (id)initWithHelper:(EFSQLiteHelper *)helper
@@ -217,6 +218,8 @@ static NSMutableDictionary *sDeleteSQLs;
     }
 
     [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([self class])] format:@"object must be a subclass of EFSQLiteObject"];
+    
+    return nil;
 }
 
 #pragma mark - private

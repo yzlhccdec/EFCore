@@ -12,4 +12,12 @@
 + (NSString *)cachesDirectory;
 
 + (NSString *)pathForDirectory:(NSSearchPathDirectory)searchPath;
+
++ (NSString *)sharedDocumentDirectoryForGroupIdentifier:(NSString *)identifier;
+
++ (NSString *)sharedLibraryDirectoryForGroupIdentifier:(NSString *)identifier;
+
++ (NSString *)sharedCachesDirectoryForGroupIdentifier:(NSString *)identifier;
+
++ (NSString *)sharedPathForDirectory:(NSString *)directory groupIdentifier:(NSString *)identifier;
 @end

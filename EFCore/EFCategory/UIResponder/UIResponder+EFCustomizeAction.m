@@ -79,7 +79,7 @@ const char * prefix = "EFCustomizeAction_";
     struct objc_super obS;
     obS.receiver = self;
     obS.super_class = [self superclass];
-    return [objc_msgSendSuper(&obS, @selector(canPerformAction:withSender:), action, sender) boolValue];
+    return [((id (*)(struct objc_super *super, SEL, SEL, id))objc_msgSendSuper)(&obS, @selector(canPerformAction:withSender:), action, sender) boolValue];
 }
 
 - (Class)__class

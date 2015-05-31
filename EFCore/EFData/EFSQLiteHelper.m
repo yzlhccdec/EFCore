@@ -83,7 +83,7 @@
                         return nil;
                     }
 
-                    [NSException raise:@"Database version error" format:@"Can't downgrade database from %d to %d", version, _version];
+                    [NSException raise:@"Database version error" format:@"Can't downgrade database from %ld to %ld", (long)version, (long)_version];
                 }
 
                 if (version < _version) {
@@ -137,6 +137,8 @@
 - (FMDatabase *)onPasswordErrorWithDBFilePath:(NSString *)dbFilePath
 {
     [NSException raise:@"Illegal function call" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
+    
+    return nil;
 }
 
 
@@ -210,7 +212,7 @@
 
 - (void)setVersion:(NSUInteger)version database:(FMDatabase *)database
 {
-    [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %d", version]];
+    [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %lu", (unsigned long)version]];
 }
 
 - (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password

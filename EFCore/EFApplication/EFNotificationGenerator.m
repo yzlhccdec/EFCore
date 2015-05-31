@@ -122,7 +122,7 @@ static dispatch_queue_t    sQueue;
 
 - (void)__save
 {
-    sData[_serviceName] = [NSString stringWithFormat:@"%f,%d", _nextTime, _index];
+    sData[_serviceName] = [NSString stringWithFormat:@"%f,%ld", _nextTime, (long)_index];
     NSString *absolutePath = [[NSFileManager cachesDirectory] stringByAppendingPathComponent:kNotificationFileName];
     [sData writeToFile:absolutePath atomically:YES];
 }

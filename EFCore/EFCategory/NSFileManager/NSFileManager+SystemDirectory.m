@@ -40,4 +40,49 @@
     return [paths objectAtIndex:0];
 }
 
++ (NSString *)sharedDocumentDirectoryForGroupIdentifier:(NSString *)identifier
+{
+    static NSString *documentDirectory;
+    if (documentDirectory == nil) {
+        documentDirectory = [self sharedPathForDirectory:@"Documents" groupIdentifier:identifier];
+    }
+
+    return documentDirectory;
+}
+
++ (NSString *)sharedLibraryDirectoryForGroupIdentifier:(NSString *)identifier
+{
+    static NSString *documentDirectory;
+    if (documentDirectory == nil) {
+        documentDirectory = [self sharedPathForDirectory:@"Library" groupIdentifier:identifier];
+    }
+
+    return documentDirectory;
+}
+
++ (NSString *)sharedCachesDirectoryForGroupIdentifier:(NSString *)identifier
+{
+    static NSString *documentDirectory;
+    if (documentDirectory == nil) {
+        documentDirectory = [self sharedPathForDirectory:@"Library/Caches" groupIdentifier:identifier];
+    }
+
+    return documentDirectory;
+}
+
++ (NSString *)sharedPathForDirectory:(NSString *)directory groupIdentifier:(NSString *)identifier
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    NSURL    *appGroupContainer     = [fileManager containerURLForSecurityApplicationGroupIdentifier:identifier];
+    NSString *appGroupContainerPath = [appGroupContainer path];
+    NSString *directoryPath         = [appGroupContainerPath stringByAppendingPathComponent:directory];
+
+    if (![fileManager fileExistsAtPath:directoryPath]) {
+        [fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+
+    return directoryPath;
+}
+
 @end
