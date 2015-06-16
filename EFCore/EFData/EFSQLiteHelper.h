@@ -4,9 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
-#import <Foundation/Foundation.h>
-
 @class FMDatabase;
 
 typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSInteger newVersion);
@@ -17,6 +14,7 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
 
 @property (nonatomic, copy) IllegalDatabaseVersionFoundHandler illegalDatabaseVersionFoundHandler;
 @property (nonatomic, copy) NSString *encryptionKey;
+@property (nonatomic, readonly) NSString *path;
 
 
 - (id)initWithPath:(NSString *)path andVersion:(NSUInteger)version;

@@ -46,6 +46,11 @@
     return self;
 }
 
+- (NSString *)path
+{
+    return _path;
+}
+
 - (FMDatabase *)database
 {
     if (_database && _database.sqliteHandle) {
