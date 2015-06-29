@@ -38,4 +38,9 @@ static NSMutableDictionary *sShareCaches = nil;
     return sShareCaches;
 }
 
++ (void)clearCustomCache
+{
+    [sShareCaches removeAllObjects];
+}
+
 @end

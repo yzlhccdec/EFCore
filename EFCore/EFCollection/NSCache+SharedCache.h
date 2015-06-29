@@ -13,5 +13,6 @@
 
 + (NSDictionary *)allSharedCaches;
 
++ (void)clearCustomCache;
 
 @end
