@@ -12,9 +12,11 @@
 #undef DLog
 #define DLog(...)
 
-@interface EFSQLiteHelper () {
-    NSUInteger _version;
-    NSString *_path;
+@interface EFSQLiteHelper ()
+{
+    NSUInteger     _version;
+    NSString       *_path;
+    NSMutableArray *_statements;
 }
 
 @property (nonatomic, readonly) FMDatabase *database;
@@ -39,8 +41,9 @@
     self = [super init];
 
     if (self) {
-        _path = [path copy];
-        _version = version;
+        _path       = [path copy];
+        _version    = version;
+        _statements = [[NSMutableArray alloc] init];
     }
 
     return self;
@@ -57,24 +60,27 @@
         return _database;
     }
 
-    BOOL success = NO;
+    BOOL       success   = NO;
     FMDatabase *database = nil;
 
     @try {
         database = [[FMDatabase alloc] initWithPath:_path];
 
         if ([database open]) {
+
+            for (NSString *sql in _statements.reverseObjectEnumerator) {
+                [database executeUpdate:sql];
+                [_statements removeObject:sql];
+            }
+
             //we don't need to check version when using temporary or in-memory database
             if ([_path length]) {
 
-                if ([_encryptionKey length] > 0)
-                {
+                if ([_encryptionKey length] > 0) {
                     [database setKey:_encryptionKey];
-                    if (![database goodConnection])
-                    {
+                    if (![database goodConnection]) {
                         database = [self onPasswordErrorWithDBFilePath:_path];
-                        if (database == nil)
-                        {
+                        if (database == nil) {
                             [NSException raise:@"Database Password Error" format:@"Password Error"];
                         }
                     }
@@ -88,7 +94,7 @@
                         return nil;
                     }
 
-                    [NSException raise:@"Database version error" format:@"Can't downgrade database from %ld to %ld", (long)version, (long)_version];
+                    [NSException raise:@"Database version error" format:@"Can't downgrade database from %ld to %ld", (long) version, (long) _version];
                 }
 
                 if (version < _version) {
@@ -103,7 +109,8 @@
 
                         [self setVersion:_version database:database];
                         [database commit];
-                    } @catch (NSException *e) {
+                    }
+                    @catch (NSException *e) {
                         [database rollback];
                     }
                 }
@@ -114,7 +121,8 @@
 
             return database;
         }
-    } @finally {
+    }
+    @finally {
         //database may be closed after calling onOpen
         if ([database sqliteHandle]) {
             if (success) {
@@ -142,7 +150,7 @@
 - (FMDatabase *)onPasswordErrorWithDBFilePath:(NSString *)dbFilePath
 {
     [NSException raise:@"Illegal function call" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
-    
+
     return nil;
 }
 
@@ -217,19 +225,19 @@
 
 - (void)setVersion:(NSUInteger)version database:(FMDatabase *)database
 {
-    [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %lu", (unsigned long)version]];
+    [database executeUpdate:[NSString stringWithFormat:@"PRAGMA user_version = %lu", (unsigned long) version]];
 }
 
-- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password
+- (void)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password
 {
-    __block BOOL result;
-    [self inDatabase:^(FMDatabase *database) {
-        result = [database executeUpdate:[password length] ?
-                                         [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s KEY '%s'", [path UTF8String], [alias UTF8String], [password UTF8String]]
-                                       : [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]]];
-    }];
-
-    return result;
+    NSString     *attachSQL = [password length] ?
+                              [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s KEY '%s'", [path UTF8String], [alias UTF8String], [password UTF8String]] :
+                              [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]];
+    if (_database && _database.sqliteHandle) {
+        [_database executeUpdate:attachSQL];
+    } else {
+        [_statements addObject:attachSQL];
+    }
 }
 
 - (BOOL)detachDatabase:(NSString *)alias

@@ -27,7 +27,7 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
 
 - (void)inTransaction:(void (^)(FMDatabase *, BOOL *))block;
 
-- (BOOL)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password;
+- (void)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password;
 
 - (BOOL)detachDatabase:(NSString *)alias;
 
