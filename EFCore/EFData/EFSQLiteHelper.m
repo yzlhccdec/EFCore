@@ -98,7 +98,7 @@
                 }
 
                 if (version < _version) {
-                    [database beginTransaction];
+                    [database beginDeferredTransaction];
 
                     @try {
                         if (version == 0) {
