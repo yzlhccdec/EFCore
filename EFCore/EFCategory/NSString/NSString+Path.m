@@ -11,7 +11,7 @@
 {
     NSString *filename = [self lastPathComponent];
     NSRange range = NSMakeRange(1, filename.length - 1);
-    uint dotLocation = [filename rangeOfString:@"." options:NSLiteralSearch range:range].location;
+    NSUInteger dotLocation = [filename rangeOfString:@"." options:NSLiteralSearch range:range].location;
     return dotLocation == NSNotFound ? @"" : [filename substringFromIndex:dotLocation + 1];
 }
 
