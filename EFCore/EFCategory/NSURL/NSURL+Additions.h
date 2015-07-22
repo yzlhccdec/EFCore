@@ -11,4 +11,7 @@
 
 - (NSURL *)URLByAppendingQueryString:(NSString *)queryString;
 
+- (NSURL *)URLByAppendingKey:(NSString *)key value:(NSString *)value;
+
+- (NSURL *)URLByAppendingParameters:(NSDictionary *)params;
 @end
