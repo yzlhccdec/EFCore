@@ -45,13 +45,13 @@
     for (NSString *key in params.allKeys) {
         id value = params[key];
         if (![value isKindOfClass:[NSString class]]) {
-            [queryString appendFormat:@"%@=%@&", key, [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [queryString appendFormat:@"%@=%@&", key, value];
         }
     }
 
     [queryString deleteCharactersInRange:NSMakeRange(queryString.length - 1, 1)];
 
-    return [NSURL URLWithString:queryString];
+    return [NSURL URLWithString:[queryString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end
