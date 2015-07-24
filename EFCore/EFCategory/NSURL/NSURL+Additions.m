@@ -44,8 +44,10 @@
 
     for (NSString *key in params.allKeys) {
         id value = params[key];
-        if (![value isKindOfClass:[NSString class]]) {
+        if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {
             [queryString appendFormat:@"%@=%@&", key, value];
+        } else {
+            NSLog(@"warning! illegal data type for %@, expect NSString or NSNumber", key);
         }
     }
 
