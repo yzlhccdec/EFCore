@@ -80,11 +80,11 @@ static NSMutableDictionary *sDeleteSQLs;
 {
     NSString *className = @(object_getClassName([object class]));
 
-    NSString *insertSQL = [sInsertSQLs objectForKey:className];
+    NSString *insertSQL = sInsertSQLs[className];
 
     if (!insertSQL) {
         insertSQL = [self buildInsertSQL:object withConflictOption:option];
-        [sInsertSQLs setObject:insertSQL forKey:className];
+        sInsertSQLs[className] = insertSQL;
     }
 
     NSArray *fields = [[object class] fieldsForPersistence];
@@ -124,11 +124,11 @@ static NSMutableDictionary *sDeleteSQLs;
 
     NSString *className = [NSString stringWithFormat:@"%s", object_getClassName([object class])];
 
-    NSString *deleteSQL = [sDeleteSQLs objectForKey:className];
+    NSString *deleteSQL = sDeleteSQLs[className];
 
     if (!deleteSQL) {
         deleteSQL = [self buildDeleteSQL:object];
-        [sDeleteSQLs setObject:deleteSQL forKey:className];
+        sDeleteSQLs[className] = deleteSQL;
     }
 
     NSArray *primaryKey = [[object class] primaryKey];
@@ -158,11 +158,11 @@ static NSMutableDictionary *sDeleteSQLs;
     
     NSString *updateSQL;
     
-    updateSQL = [sUpdateSQLs objectForKey:keyForUpdateSQL];
+    updateSQL = sUpdateSQLs[keyForUpdateSQL];
 
     if (!updateSQL) {
         updateSQL = [self buildUpdateSQL:object];
-        [sUpdateSQLs setObject:updateSQL forKey:keyForUpdateSQL];
+        sUpdateSQLs[keyForUpdateSQL] = updateSQL;
     }
 
     __block BOOL result;
@@ -206,7 +206,7 @@ static NSMutableDictionary *sDeleteSQLs;
                 FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
 
                 while ([resultSet next]) {
-                    id item = [[objectClass alloc] initWithFMResultSet:resultSet];
+                    id item = [(EFSQLiteObject *) [objectClass alloc] initWithFMResultSet:resultSet];
                     [result addObject:item];
                 }
             }];

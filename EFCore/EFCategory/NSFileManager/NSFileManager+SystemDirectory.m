@@ -37,7 +37,7 @@
 + (NSString *)pathForDirectory:(NSSearchPathDirectory)searchPath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(searchPath, NSUserDomainMask, YES);
-    return [paths objectAtIndex:0];
+    return paths[0];
 }
 
 + (NSString *)sharedDocumentDirectoryForGroupIdentifier:(NSString *)identifier
