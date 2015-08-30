@@ -3,6 +3,7 @@
 //
 // To change the template use AppCode | Preferences | File Templates.
 //
+//
 #undef DLog
 
 #define DLog(...)
@@ -114,7 +115,8 @@ static NSMutableDictionary *sFieldProperties;
 
 - (void)endModification
 {
-    [_changedProperties removeAllObjects];
+    //delay clean the changedProperties
+   // [_changedProperties removeAllObjects];
 
     if (_isKVORegistered) {
         [self unregisterFromKVO];
