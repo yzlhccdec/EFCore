@@ -149,7 +149,7 @@ static NSMutableDictionary *sDeleteSQLs;
 {
     if (![object.changedFields count]) {
         [object endModification];
-        return false;
+        return NO;
     }
 
     NSString *className = [NSString stringWithFormat:@"%s", object_getClassName([object class])];
