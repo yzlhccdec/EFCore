@@ -79,12 +79,13 @@ static NSMutableDictionary *sDeleteSQLs;
 - (BOOL)addObject:(EFSQLiteObject *)object withConflictOption:(ConflictOption)option toDatabase:(FMDatabase *)database
 {
     NSString *className = @(object_getClassName([object class]));
+    NSString *insertSQLKey = [NSString stringWithFormat:@"%@_%@",className,@(option)];
 
-    NSString *insertSQL = sInsertSQLs[className];
+    NSString *insertSQL = sInsertSQLs[insertSQLKey];
 
     if (!insertSQL) {
         insertSQL = [self buildInsertSQL:object withConflictOption:option];
-        sInsertSQLs[className] = insertSQL;
+        sInsertSQLs[insertSQLKey] = insertSQL;
     }
 
     NSArray *fields = [[object class] fieldsForPersistence];
