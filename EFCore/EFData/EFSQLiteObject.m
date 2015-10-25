@@ -41,19 +41,17 @@ static NSMutableDictionary *sFieldProperties;
 
 - (id)initWithFMResultSet:(FMResultSet *)resultSet
 {
-    return [self initWithFMResultSet:resultSet ignoreFieldNotExistWarning:NO];
+    return [self initWithFMResultSet:resultSet ignoreFieldNotExist:NO];
 }
 
-- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExistWarning:(BOOL) ignore
+- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExist:(BOOL) ignore
 {
     self = [super init];
     if (self) {
         for (EFKeyValuePair *field in [[self class] fieldsForPersistence]) {
-            if(ignore){
-                if([resultSet columnIsNull:field.key])
-                {
-                    continue;
-                }
+            if(ignore && ![[resultSet columnNameToIndexMap] objectForKey:[field.key lowercaseString]])
+            { 
+                continue; 
             }
             id value = resultSet[field.key];
             if (value != nil && value != [NSNull null]) {

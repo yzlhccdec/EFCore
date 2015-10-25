@@ -15,7 +15,7 @@
 @property(nonatomic, readonly) NSArray *changedFields;
 
 - (id)initWithFMResultSet:(FMResultSet *)resultSet;
-- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExistWarning:(BOOL) ignore;
+- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExist:(BOOL) ignore;
 
 - (void)startModification;
 
