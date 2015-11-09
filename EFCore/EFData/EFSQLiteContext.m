@@ -259,7 +259,9 @@ static NSMutableDictionary *sDeleteSQLs;
         BOOL stop = NO;
 
         while ([resultSet next]) {
-            block(resultSet, &stop);
+            @autoreleasepool {
+                block(resultSet, &stop);
+            }
 
             if (stop) {
                 break;
