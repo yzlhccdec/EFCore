@@ -259,7 +259,9 @@ static NSMutableDictionary *sDeleteSQLs;
         FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
 
         while ([resultSet next]) {
-            block(resultSet);
+            @autoreleasepool {
+                block(resultSet);
+            }
         }
     }];
 
