@@ -40,7 +40,7 @@ typedef enum {
 
 - (NSArray<EFSQLiteObject *> *)getObjects:(Class)objectClass query:(NSString *)query, ...;
 
-- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(Class (^)(FMResultSet *resultSet))block query:(NSString *)query, ...;
+- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(EFSQLiteObject *(^)(FMResultSet *))block query:(NSString *)query, ...;
 
-- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *resultSet))block query:(NSString *)query, ...;
+- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *, BOOL *))block query:(NSString *)query, ...;
 @end

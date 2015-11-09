@@ -219,7 +219,7 @@ static NSMutableDictionary *sDeleteSQLs;
     }
 }
 
-- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(Class (^)(FMResultSet *resultSet))block query:(NSString *)query, ...
+- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(EFSQLiteObject* (^)(FMResultSet *resultSet))block query:(NSString *)query, ...
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
 
@@ -232,12 +232,11 @@ static NSMutableDictionary *sDeleteSQLs;
 
         while ([resultSet next]) {
             @autoreleasepool {
-                Class objectClass = block(resultSet);
-                if ([objectClass isSubclassOfClass:[EFSQLiteObject class]]) {
-                    id item = [(EFSQLiteObject *) [objectClass alloc] initWithFMResultSet:resultSet];
-                    [result addObject:item];
+                EFSQLiteObject *object = block(resultSet);
+                if ([object isKindOfClass:[EFSQLiteObject class]]) {
+                    [result addObject:object];
                 } else {
-                    [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass(objectClass)] format:@"object must be a subclass of EFSQLiteObject"];
+                    [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([object class])] format:@"object must be a subclass of EFSQLiteObject"];
                 }
             }
         }
@@ -248,7 +247,7 @@ static NSMutableDictionary *sDeleteSQLs;
     return result;
 }
 
-- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *resultSet))block query:(NSString *)query, ...
+- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *resultSet, BOOL *stop))block query:(NSString *)query, ...
 {
     va_list args;
     va_start(args, query);
@@ -257,10 +256,13 @@ static NSMutableDictionary *sDeleteSQLs;
     [self.helper inDatabase:^(FMDatabase *database) {
 
         FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
+        BOOL stop = NO;
 
         while ([resultSet next]) {
-            @autoreleasepool {
-                block(resultSet);
+            block(resultSet, &stop);
+
+            if (stop) {
+                break;
             }
         }
     }];
