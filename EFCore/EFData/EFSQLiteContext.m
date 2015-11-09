@@ -78,8 +78,8 @@ static NSMutableDictionary *sDeleteSQLs;
 
 - (BOOL)addObject:(EFSQLiteObject *)object withConflictOption:(ConflictOption)option toDatabase:(FMDatabase *)database
 {
-    NSString *className = @(object_getClassName([object class]));
-    NSString *insertSQLKey = [NSString stringWithFormat:@"%@_%@",className,@(option)];
+    NSString *className    = @(object_getClassName([object class]));
+    NSString *insertSQLKey = [NSString stringWithFormat:@"%@_%@", className, @(option)];
 
     NSString *insertSQL = sInsertSQLs[insertSQLKey];
 
@@ -88,19 +88,19 @@ static NSMutableDictionary *sDeleteSQLs;
         sInsertSQLs[insertSQLKey] = insertSQL;
     }
 
-    NSArray *fields = [[object class] fieldsForPersistence];
+    NSArray        *fields      = [[object class] fieldsForPersistence];
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count]];
 
     for (EFKeyValuePair *pair in fields) {
         if ([((NSString *) pair.value) rangeOfString:@"R,"].location == NSNotFound) {
-            [fieldValues addObject:[object valueForKey:pair.key] ? : [NSNull null]];
+            [fieldValues addObject:[object valueForKey:pair.key] ?: [NSNull null]];
         }
     }
 
     return [database executeUpdate:insertSQL withArgumentsInArray:fieldValues];
 }
 
-- (BOOL)addObjects:(NSArray *)objects withConflictOption:(ConflictOption)option
+- (BOOL)addObjects:(NSArray<EFSQLiteObject *> *)objects withConflictOption:(ConflictOption)option
 {
     __block BOOL result;
 
@@ -132,7 +132,7 @@ static NSMutableDictionary *sDeleteSQLs;
         sDeleteSQLs[className] = deleteSQL;
     }
 
-    NSArray *primaryKey = [[object class] primaryKey];
+    NSArray        *primaryKey  = [[object class] primaryKey];
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[primaryKey count]];
 
     for (NSString *field in primaryKey) {
@@ -156,9 +156,9 @@ static NSMutableDictionary *sDeleteSQLs;
     NSString *className = [NSString stringWithFormat:@"%s", object_getClassName([object class])];
 
     NSString *keyForUpdateSQL = [[object.changedFields componentsJoinedByString:@""] stringByAppendingString:className];
-    
+
     NSString *updateSQL;
-    
+
     updateSQL = sUpdateSQLs[keyForUpdateSQL];
 
     if (!updateSQL) {
@@ -168,7 +168,7 @@ static NSMutableDictionary *sDeleteSQLs;
 
     __block BOOL result;
 
-    NSArray *fields = object.changedFields;
+    NSArray        *fields      = object.changedFields;
     NSMutableArray *fieldValues = [[NSMutableArray alloc] initWithCapacity:[fields count] + [[[object class] primaryKey] count]];
 
     for (NSString *field in fields) {
@@ -192,42 +192,85 @@ static NSMutableDictionary *sDeleteSQLs;
     return result;
 }
 
-- (NSArray *)getObjects:(Class)objectClass query:(NSString *)query, ...
+- (NSArray<EFSQLiteObject *> *)getObjects:(Class)objectClass query:(NSString *)query, ...
 {
-    for (Class tcls = class_getSuperclass(objectClass); tcls; tcls = class_getSuperclass(tcls)) {
-        if (tcls == [EFSQLiteObject class]) {
-            NSMutableArray *result = [[NSMutableArray alloc] init];
+    if ([objectClass isSubclassOfClass:[EFSQLiteObject class]]) {
+        NSMutableArray *result = [[NSMutableArray alloc] init];
 
-            va_list args;
-            va_start(args, query);
-            va_list *argsReference = &args;
+        va_list args;
+        va_start(args, query);
+        va_list *argsReference = &args;
 
-            [self.helper inDatabase:^(FMDatabase *database) {
+        [self.helper inDatabase:^(FMDatabase *database) {
 
-                FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
+            FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
 
-                while ([resultSet next]) {
+            while ([resultSet next]) {
+                id item = [(EFSQLiteObject *) [objectClass alloc] initWithFMResultSet:resultSet];
+                [result addObject:item];
+            }
+        }];
+
+        va_end(args);
+
+        return result;
+    } else {
+        [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([self class])] format:@"object must be a subclass of EFSQLiteObject"];
+    }
+}
+
+- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(Class (^)(FMResultSet *resultSet))block query:(NSString *)query, ...
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+
+    va_list args;
+    va_start(args, query);
+    va_list *argsReference = &args;
+
+    [self.helper inDatabase:^(FMDatabase *database) {
+        FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
+
+        while ([resultSet next]) {
+            @autoreleasepool {
+                Class objectClass = block(resultSet);
+                if ([objectClass isSubclassOfClass:[EFSQLiteObject class]]) {
                     id item = [(EFSQLiteObject *) [objectClass alloc] initWithFMResultSet:resultSet];
                     [result addObject:item];
+                } else {
+                    [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass(objectClass)] format:@"object must be a subclass of EFSQLiteObject"];
                 }
-            }];
-
-            va_end(args);
-
-            return result;
+            }
         }
-    }
+    }];
 
-    [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([self class])] format:@"object must be a subclass of EFSQLiteObject"];
-    
-    return nil;
+    va_end(args);
+
+    return result;
+}
+
+- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *resultSet))block query:(NSString *)query, ...
+{
+    va_list args;
+    va_start(args, query);
+    va_list *argsReference = &args;
+
+    [self.helper inDatabase:^(FMDatabase *database) {
+
+        FMResultSet *resultSet = [database executeQuery:query withVAList:*argsReference];
+
+        while ([resultSet next]) {
+            block(resultSet);
+        }
+    }];
+
+    va_end(args);
 }
 
 #pragma mark - private
 
 - (NSString *)buildUpdateSQL:(EFSQLiteObject *)object
 {
-    NSArray *primaryKey = [[object class] primaryKey];
+    NSArray         *primaryKey  = [[object class] primaryKey];
     NSMutableString *whereClause = [[NSMutableString alloc] init];
 
     if (![primaryKey count]) {
@@ -239,7 +282,7 @@ static NSMutableDictionary *sDeleteSQLs;
         }
     }
 
-    NSArray *fields = object.changedFields;
+    NSArray         *fields       = object.changedFields;
     NSMutableString *updateFields = [[NSMutableString alloc] init];
 
     for (NSString *field in fields) {
@@ -252,9 +295,9 @@ static NSMutableDictionary *sDeleteSQLs;
 
 - (NSString *)buildInsertSQL:(EFSQLiteObject *)object withConflictOption:(ConflictOption)option
 {
-    NSMutableString *paramNames = [[NSMutableString alloc] init];
+    NSMutableString *paramNames  = [[NSMutableString alloc] init];
     NSMutableString *paramValues = [[NSMutableString alloc] init];
-    NSArray *fields = [[object class] fieldsForPersistence];
+    NSArray         *fields      = [[object class] fieldsForPersistence];
 
     for (EFKeyValuePair *field in fields) {
         if ([((NSString *) field.value) rangeOfString:@"R,"].location == NSNotFound) {
@@ -293,16 +336,16 @@ static NSMutableDictionary *sDeleteSQLs;
     }
 
     return [[NSString alloc] initWithFormat:@"INSERT %@ INTO %@(%@) VALUES(%@);",
-                    optionString,
-                    [[object class] tableName] ? : @(object_getClassName(object)),
-                    [paramNames substringToIndex:[paramNames length] - 1],
-                    [paramValues substringToIndex:[paramValues length] - 1]];
+                                            optionString,
+                                            [[object class] tableName] ?: @(object_getClassName(object)),
+                                            [paramNames substringToIndex:[paramNames length] - 1],
+                                            [paramValues substringToIndex:[paramValues length] - 1]];
 }
 
 - (NSString *)buildDeleteSQL:(EFSQLiteObject *)object
 {
-    NSArray *primaryKey = [[object class] primaryKey];
-    NSMutableString *param = [[NSMutableString alloc] init];
+    NSArray         *primaryKey = [[object class] primaryKey];
+    NSMutableString *param      = [[NSMutableString alloc] init];
 
     if (![primaryKey count]) {
         [NSException raise:@"Invalid Primary Key" format:@"No primary key defined in %@", object];
@@ -313,7 +356,7 @@ static NSMutableDictionary *sDeleteSQLs;
         }
     }
 
-    return [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE %@", [[object class] tableName] ? : @(object_getClassName(object)), [param substringToIndex:[param length] - 5]];
+    return [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE %@", [[object class] tableName] ?: @(object_getClassName(object)), [param substringToIndex:[param length] - 5]];
 }
 
 @end

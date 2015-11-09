@@ -213,6 +213,34 @@
     }
 }
 
+#if SQLITE_VERSION_NUMBER >= 3007000
+
+- (NSError *)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block
+{
+    static unsigned long savePointIdx = 0;
+    __block NSError      *err         = nil;
+    @synchronized (self) {
+        NSString *name = [NSString stringWithFormat:@"savePoint%ld", savePointIdx++];
+
+        BOOL shouldRollback = NO;
+
+        if ([[self database] startSavePointWithName:name error:&err]) {
+
+            block([self database], &shouldRollback);
+
+            if (shouldRollback) {
+                // We need to rollback and release this savepoint to remove it
+                [[self database] rollbackToSavePointWithName:name error:&err];
+            }
+            [[self database] releaseSavePointWithName:name error:&err];
+
+        }
+    }
+    return err;
+}
+
+#endif
+
 - (void)onOpen:(FMDatabase *)database;
 {
     [NSException raise:@"EFSQLiteHelper Error" format:@"you must subclass EFSQLiteHelper and override this method.Do not call super method when overriding"];
@@ -230,9 +258,9 @@
 
 - (void)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password
 {
-    NSString     *attachSQL = [password length] ?
-                              [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s KEY '%s'", [path UTF8String], [alias UTF8String], [password UTF8String]] :
-                              [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]];
+    NSString *attachSQL = [password length] ?
+            [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s KEY '%s'", [path UTF8String], [alias UTF8String], [password UTF8String]] :
+            [NSString stringWithFormat:@"ATTACH DATABASE \'%s\' AS %s", [path UTF8String], [alias UTF8String]];
     if (_database && _database.sqliteHandle) {
         [_database executeUpdate:attachSQL];
     } else {
