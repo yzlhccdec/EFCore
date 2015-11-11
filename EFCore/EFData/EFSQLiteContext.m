@@ -235,7 +235,7 @@ static NSMutableDictionary *sDeleteSQLs;
                 EFSQLiteObject *object = block(resultSet);
                 if ([object isKindOfClass:[EFSQLiteObject class]]) {
                     [result addObject:object];
-                } else {
+                } else if (object) {
                     [NSException raise:[NSString stringWithFormat:@"%@ Error", NSStringFromClass([object class])] format:@"object must be a subclass of EFSQLiteObject"];
                 }
             }
