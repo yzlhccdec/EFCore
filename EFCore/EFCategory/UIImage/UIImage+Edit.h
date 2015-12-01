@@ -18,13 +18,13 @@
 
 - (UIColor *)averageColorForRect:(CGRect)rect;
 
-- (UIImage *)subImageForRect:(CGRect)rect;
+- (UIImage *)croppedImage:(CGRect)bounds;
 
 - (UIImage *)scaleToSize:(CGSize)size;
 
 - (UIImage *)scaleCropInCenterToSize:(CGSize)size;
 
-- (UIImage *)scaleToWidth:(CGFloat)width;
+- (UIImage *)scaleToFillWidth:(CGFloat)width;
 
 - (UIImage *)scaleWithRatio:(CGFloat)ratio;
 @end

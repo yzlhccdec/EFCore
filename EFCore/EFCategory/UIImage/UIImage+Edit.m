@@ -35,8 +35,8 @@
 }
 
 //截取部分图像
-- (UIImage *)subImageForRect:(CGRect)rect {
-    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+- (UIImage *)croppedImage:(CGRect)bounds {
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, bounds);
     CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
 
     UIGraphicsBeginImageContext(smallBounds.size);
@@ -98,7 +98,7 @@
     int xPos = (subWidth - size.width) / radio / 2;
     int yPos = (subHeight - size.height) / radio / 2;
     //先裁剪
-    UIImage *img = [self subImageForRect:CGRectMake(xPos, yPos, width, height)];
+    UIImage *img = [self croppedImage:CGRectMake(xPos, yPos, width, height)];
 
     UIGraphicsBeginImageContext(size);
     //再scale
@@ -112,7 +112,7 @@
 }
 
 //按宽度等比例缩放
-- (UIImage *)scaleToWidth:(CGFloat)width {
+- (UIImage *)scaleToFillWidth:(CGFloat)width {
     float imageWidth = self.size.width;
     float imageHeight = self.size.height;
 
