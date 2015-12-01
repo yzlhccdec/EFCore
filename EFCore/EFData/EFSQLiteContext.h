@@ -9,6 +9,7 @@
 
 @class EFSQLiteObject;
 @class EFSQLiteHelper;
+@class FMResultSet;
 
 typedef enum {
     ConflictOptionRollback,
@@ -27,7 +28,7 @@ typedef enum {
 
 - (BOOL)addObject:(EFSQLiteObject *)object;
 
-- (BOOL)addObjects:(NSArray *)objects;
+- (BOOL)addObjects:(NSArray<EFSQLiteObject *> *)objects;
 
 - (BOOL)addObject:(EFSQLiteObject *)object withConflictOption:(ConflictOption)option;
 
@@ -37,5 +38,9 @@ typedef enum {
 
 - (BOOL)updateObject:(EFSQLiteObject *)object;
 
-- (NSArray *)getObjects:(Class)objectClass query:(NSString *)query, ...;
+- (NSArray<EFSQLiteObject *> *)getObjects:(Class)objectClass query:(NSString *)query, ...;
+
+- (NSArray<EFSQLiteObject *> *)getObjectsWithBlock:(EFSQLiteObject *(^)(FMResultSet *))block query:(NSString *)query, ...;
+
+- (void)enumerateResultSetUsingBlock:(void (^)(FMResultSet *, BOOL *))block query:(NSString *)query, ...;
 @end

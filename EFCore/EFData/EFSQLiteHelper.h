@@ -27,6 +27,10 @@ typedef void (^IllegalDatabaseVersionFoundHandler)(NSInteger currentVersion, NSI
 
 - (void)inTransaction:(void (^)(FMDatabase *, BOOL *))block;
 
+#if SQLITE_VERSION_NUMBER >= 3007000
+- (NSError*)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block;
+#endif
+
 - (void)attachDatabaseAtPath:(NSString *)path alias:(NSString *)alias password:(NSString *)password;
 
 - (BOOL)detachDatabase:(NSString *)alias;
