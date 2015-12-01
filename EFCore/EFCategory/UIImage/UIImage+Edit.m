@@ -83,7 +83,7 @@
 }
 
 //裁剪成矩形后缩放
-- (UIImage *)scaleCropInCenterToSize:(CGSize)size {
+- (UIImage *)scaleToAspectFillSize:(CGSize)size {
     CGFloat width = CGImageGetWidth(self.CGImage);
     CGFloat height = CGImageGetHeight(self.CGImage);
 

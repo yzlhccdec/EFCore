@@ -22,7 +22,7 @@
 
 - (UIImage *)scaleToSize:(CGSize)size;
 
-- (UIImage *)scaleCropInCenterToSize:(CGSize)size;
+- (UIImage *)scaleToAspectFillSize:(CGSize)size;
 
 - (UIImage *)scaleToFillWidth:(CGFloat)width;
 
