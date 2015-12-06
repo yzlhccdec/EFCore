@@ -11,10 +11,11 @@
 
 //截取部分图像
 - (UIImage *)croppedImage:(CGRect)bounds {
-    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, bounds);
-    CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, CGRectMake(bounds.origin.x*screenScale,bounds.origin.y*screenScale,bounds.size.width*screenScale, bounds.size.height*screenScale));
+    CGRect smallBounds = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
 
-    UIGraphicsBeginImageContextWithOptions(smallBounds.size,NO,0);
+    UIGraphicsBeginImageContextWithOptions(bounds.size,NO,0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextDrawImage(context, smallBounds, subImageRef);
     UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
