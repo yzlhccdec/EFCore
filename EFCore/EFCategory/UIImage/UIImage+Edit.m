@@ -9,37 +9,12 @@
 
 @implementation UIImage (Edit)
 
-- (UIImage *)resizeToWidth:(CGFloat)width height:(CGFloat)height {
-    CGFloat destW = width;
-    CGFloat destH = height;
-    CGFloat sourceW = width;
-    CGFloat sourceH = height;
-
-    CGImageRef imageRef = self.CGImage;
-    CGContextRef bitmap = CGBitmapContextCreate(NULL,
-            destW,
-            destH,
-            CGImageGetBitsPerComponent(imageRef),
-            4 * ((int) destW),
-            CGImageGetColorSpace(imageRef),
-            (kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst));
-
-    CGContextDrawImage(bitmap, CGRectMake(0, 0, sourceW, sourceH), imageRef);
-
-    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-    UIImage *result = [UIImage imageWithCGImage:ref];
-    CGContextRelease(bitmap);
-    CGImageRelease(ref);
-
-    return result;
-}
-
 //截取部分图像
 - (UIImage *)croppedImage:(CGRect)bounds {
     CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, bounds);
     CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
 
-    UIGraphicsBeginImageContext(smallBounds.size);
+    UIGraphicsBeginImageContextWithOptions(smallBounds.size,NO,0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextDrawImage(context, smallBounds, subImageRef);
     UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
@@ -67,7 +42,7 @@
 
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size,NO,0);
 
     // 绘制改变大小的图片
     [self drawInRect:CGRectMake(xPos, yPos, width, height)];
@@ -100,7 +75,7 @@
     //先裁剪
     UIImage *img = [self croppedImage:CGRectMake(xPos, yPos, width, height)];
 
-    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size,NO,0);
     //再scale
     [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
     UIImage *targetImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -120,7 +95,7 @@
 
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContext(CGSizeMake(width, imageHeight / widthScale));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, imageHeight / widthScale),NO,0);
 
     [self drawInRect:CGRectMake(0, 0, width, imageHeight / widthScale)];
 
@@ -139,7 +114,7 @@
 
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContext(CGSizeMake(imageWidth, imageHeight));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageWidth, imageHeight),NO,0);
 
     [self drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
 
