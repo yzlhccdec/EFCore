@@ -22,7 +22,7 @@ typedef enum {
 
 @interface EFSQLiteContext : NSObject
 
-@property (nonatomic, readonly) EFSQLiteHelper *helper;
+@property(nonatomic, readonly) EFSQLiteHelper *helper;
 
 - (id)initWithHelper:(EFSQLiteHelper *)helper;
 
@@ -36,7 +36,11 @@ typedef enum {
 
 - (BOOL)removeObject:(EFSQLiteObject *)object;
 
+- (BOOL)removeObject:(EFSQLiteObject *)object withCondition:(NSString *)condition;
+
 - (BOOL)updateObject:(EFSQLiteObject *)object;
+
+- (BOOL)updateObject:(EFSQLiteObject *)object withCondition:(NSString *)condition
 
 - (NSArray<EFSQLiteObject *> *)getObjects:(Class)objectClass query:(NSString *)query, ...;
 
