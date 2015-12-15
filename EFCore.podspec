@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "EFCore"
-  s.version      = "1.1"
+  s.version      = "1.2"
   s.summary      = "EFCore."
 
   s.description  = <<-DESC
