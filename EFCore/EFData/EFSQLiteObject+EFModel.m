@@ -49,6 +49,7 @@
 }
 
 - (BOOL)__validateAndSetValue:(id)value forKey:(NSString *)key ignoreInvalidValue:(BOOL)ignoreInvalidValue error:(NSError **)pError {
+    if ([value isEqual:NSNull.null]) value = nil;
     __autoreleasing id validatedValue = value;
 
     if (![self validateValue:&validatedValue forKey:key error:pError]) {
