@@ -13,14 +13,12 @@
 #import "EFSQLiteObject.h"
 #import "EFKeyValuePair.h"
 #import "EFSQLiteObject+EFPrivate.h"
-#import "EXTRuntimeExtensions.h"
-#import "EXTScope.h"
+#import "EFObject+Private.h"
 
 
-@interface EFSQLiteObject ()
-{
+@interface EFSQLiteObject () {
     NSMutableArray *_changedProperties;
-    BOOL           _isKVORegistered;
+    BOOL _isKVORegistered;
 }
 
 - (void)registerForKVO;
@@ -31,13 +29,11 @@
 
 @implementation EFSQLiteObject
 
-- (id)initWithFMResultSet:(FMResultSet *)resultSet
-{
+- (id)initWithFMResultSet:(FMResultSet *)resultSet {
     return [self initWithFMResultSet:resultSet ignoreFieldNotExist:NO];
 }
 
-- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExist:(BOOL)ignore
-{
+- (id)initWithFMResultSet:(FMResultSet *)resultSet ignoreFieldNotExist:(BOOL)ignore {
     self = [super init];
     if (self) {
         for (EFKeyValuePair *field in [[self class] fieldsForPersistence]) {
@@ -55,18 +51,15 @@
     return self;
 }
 
-- (NSArray *)changedFields
-{
+- (NSArray *)changedFields {
     return _changedProperties;
 }
 
-+ (NSSet *)excludedFields
-{
++ (NSSet *)excludedFields {
     return nil;
 }
 
-+ (NSArray *)fieldsForPersistence
-{
++ (NSArray *)fieldsForPersistence {
     if (self == [EFSQLiteObject class]) {
         return nil;
     }
@@ -76,21 +69,21 @@
         return cachedFields;
     }
 
-    NSMutableArray *fields      = [[[self superclass] fieldsForPersistence] mutableCopy];
+    NSMutableArray *fields = [[[self superclass] fieldsForPersistence] mutableCopy];
 
     if (!fields) {
         fields = [NSMutableArray array];
     }
 
-    unsigned int    count;
+    unsigned int count;
     objc_property_t *properties = class_copyPropertyList(self, &count);
 
-    NSSet               *excludedProperties = [self excludedFields];
-    NSMutableDictionary *propertyIndex      = [[NSMutableDictionary alloc] init];
+    NSSet *excludedProperties = [self excludedFields];
+    NSMutableDictionary *propertyIndex = [[NSMutableDictionary alloc] init];
 
     for (int i = 0; i < count; i++) {
         EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
-        if ([self __isStorageProperty:pair.key]) {
+        if ([self isStorageProperty:pair.key]) {
             propertyIndex[pair.key] = pair;
         }
     }
@@ -104,55 +97,23 @@
     return fields;
 }
 
-+ (BOOL)__isStorageProperty:(NSString *)propertyKey
-{
-    objc_property_t property = class_getProperty(self.class, propertyKey.UTF8String);
-
-    if (property == NULL) {
-        return NO;
-    }
-
-    ext_propertyAttributes *attributes = ext_copyPropertyAttributes(property);
-    @onExit{
-        free(attributes);
-    };
-
-    BOOL hasGetter = [self instancesRespondToSelector:attributes->getter];
-    BOOL hasSetter = [self instancesRespondToSelector:attributes->setter];
-    if (!attributes->dynamic && attributes->ivar == NULL && !hasGetter && !hasSetter) {
-        return NO;
-    } else if (attributes->readonly && attributes->ivar == NULL) {
-        if ([self isEqual:EFSQLiteObject.class]) {
-            return NO;
-        } else {
-            return [self.superclass __isStorageProperty:propertyKey];
-        }
-    } else {
-        return YES;
-    }
-}
-
-+ (NSArray *)primaryKey
-{
++ (NSArray *)primaryKey {
     [NSException raise:@"Invalid Primary Key" format:@"No primary key defined in %@", self];
     return nil;
 }
 
-+ (NSString *)tableName
-{
++ (NSString *)tableName {
     return NSStringFromClass([self class]);
 }
 
-- (void)startModification
-{
+- (void)startModification {
     _changedProperties = [[NSMutableArray alloc] init];
     if (!_isKVORegistered) {
         [self registerForKVO];
     }
 }
 
-- (void)endModification
-{
+- (void)endModification {
     //delay clean the changedProperties
     // [_changedProperties removeAllObjects];
 
@@ -163,28 +124,25 @@
 
 #pragma mark - private
 
-- (void)registerForKVO
-{
+- (void)registerForKVO {
     DLog("register");
     _isKVORegistered = YES;
-    NSArray             *observableKeyPaths = [[self class] fieldsForPersistence];
+    NSArray *observableKeyPaths = [[self class] fieldsForPersistence];
     for (EFKeyValuePair *pair in observableKeyPaths) {
         [self addObserver:self forKeyPath:pair.key options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
-- (void)unregisterFromKVO
-{
+- (void)unregisterFromKVO {
     DLog("unregister");
     _isKVORegistered = NO;
-    NSArray             *observableKeyPaths = [[self class] fieldsForPersistence];
+    NSArray *observableKeyPaths = [[self class] fieldsForPersistence];
     for (EFKeyValuePair *pair in observableKeyPaths) {
         [self removeObserver:self forKeyPath:pair.key];
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     for (EFKeyValuePair *pair in [[self class] fieldsForPersistence]) {
         if ([((NSString *) pair.key) isEqualToString:keyPath] && ![[[self class] primaryKey] containsObject:keyPath]) {
             [_changedProperties addObject:keyPath];
@@ -192,8 +150,7 @@
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     if (_isKVORegistered) {
         [self unregisterFromKVO];
     }

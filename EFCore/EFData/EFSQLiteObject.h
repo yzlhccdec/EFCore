@@ -7,26 +7,9 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
+#import "EFObject.h"
 
-#define FieldName(property) [[@(#property) componentsSeparatedByString: @"."] lastObject]
-
-@protocol EFSQLiteObject
-
-- (void)startModification;
-
-- (void)endModification;
-
-+ (NSSet *)excludedFields;
-
-+ (NSArray *)fieldsForPersistence;
-
-+ (NSArray *)primaryKey;
-
-+ (NSString *)tableName;
-
-@end
-
-@interface EFSQLiteObject : NSObject <EFSQLiteObject>
+@interface EFSQLiteObject : EFObject
 
 @property(nonatomic, readonly) NSArray *changedFields;
 
