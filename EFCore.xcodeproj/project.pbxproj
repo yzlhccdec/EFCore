@@ -89,6 +89,10 @@
 		2CF6AC7D176F7F61002379EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF6AC4F176F7956002379EA /* UIKit.framework */; };
 		2CF6ACBC1770133C002379EA /* EFCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB0A176F7654002379EA /* EFCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CFCDD0F18CF016E0034FC2B /* EFCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2CF6AB09176F7654002379EA /* EFCore-Prefix.pch */; };
+		58B831D8C8F09B4B7AC824FE /* EFSQLiteObject+EFModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B8355E6147F76C28ECEBE6 /* EFSQLiteObject+EFModel.m */; };
+		58B83200A0D662514105584B /* NSError+EFException.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B834FFFC177D886D079970 /* NSError+EFException.m */; };
+		58B83234BA78006226EE7363 /* EFSQLiteObject+EFModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B8325A4F5CF14E0FC75A20 /* EFSQLiteObject+EFModel.h */; };
+		58B83D1892F2DCDD50F9A101 /* NSError+EFException.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B8347FF614C628E85E6788 /* NSError+EFException.h */; };
 		9D88F0783C4E6962D8BE891B /* NSFileManager+SystemDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88F2713F5F0B4AD23D6336 /* NSFileManager+SystemDirectory.m */; };
 		9D88F28CF1A5C49FB8B1E5F4 /* NSCache+SharedCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D88F2DBBAC532037E35472C /* NSCache+SharedCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D88F308DC268C7D9E4A61CF /* CALayer+ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D88FE53261E9B1929074572 /* CALayer+ImageContent.m */; };
@@ -196,6 +200,10 @@
 		2CF6AC4D176F794B002379EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2CF6AC4F176F7956002379EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CF8DFBF181E26970068BC5F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		58B8325A4F5CF14E0FC75A20 /* EFSQLiteObject+EFModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EFSQLiteObject+EFModel.h"; sourceTree = "<group>"; };
+		58B8347FF614C628E85E6788 /* NSError+EFException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+EFException.h"; sourceTree = "<group>"; };
+		58B834FFFC177D886D079970 /* NSError+EFException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+EFException.m"; sourceTree = "<group>"; };
+		58B8355E6147F76C28ECEBE6 /* EFSQLiteObject+EFModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EFSQLiteObject+EFModel.m"; sourceTree = "<group>"; };
 		77E0E813F3C949FE9E87A6F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D88F21F015AE7BC7DB77711 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		9D88F25A3B13D580F26F9939 /* NSString+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Path.h"; sourceTree = "<group>"; };
@@ -336,6 +344,8 @@
 				9D88FAC2A031393205768F27 /* UIResponder */,
 				9D88FBB732C630D3D65A4B36 /* NSBundle+EFExtension.m */,
 				9D88F9FBE796D83EF6350B34 /* NSBundle+EFExtension.h */,
+				58B834FFFC177D886D079970 /* NSError+EFException.m */,
+				58B8347FF614C628E85E6788 /* NSError+EFException.h */,
 			);
 			path = EFCategory;
 			sourceTree = "<group>";
@@ -433,6 +443,8 @@
 				2CF6ABF2176F77BD002379EA /* EFSQLiteHelper.m */,
 				2CF6ABF3176F77BD002379EA /* EFSQLiteObject.h */,
 				2CF6ABF4176F77BD002379EA /* EFSQLiteObject.m */,
+				58B8355E6147F76C28ECEBE6 /* EFSQLiteObject+EFModel.m */,
+				58B8325A4F5CF14E0FC75A20 /* EFSQLiteObject+EFModel.h */,
 			);
 			path = EFData;
 			sourceTree = "<group>";
@@ -580,6 +592,8 @@
 				9D88FF69129FF8BB5910303D /* NSBundle+EFExtension.h in Headers */,
 				9D88FD000AB381DACE3205F5 /* NSURL+EFAppStoreLinks.h in Headers */,
 				9D88F961521E82AB1AFB7996 /* CALayer+ImageContent.h in Headers */,
+				58B83234BA78006226EE7363 /* EFSQLiteObject+EFModel.h in Headers */,
+				58B83D1892F2DCDD50F9A101 /* NSError+EFException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +755,8 @@
 				9D88FCFCE642AF09E3DDCA99 /* UIResponder+EFCustomizeAction.m in Sources */,
 				9D88F4B41DF5DC34E969A847 /* NSBundle+EFExtension.m in Sources */,
 				9D88FB1CD3D51A4577CF60F2 /* NSString+Path.m in Sources */,
+				58B831D8C8F09B4B7AC824FE /* EFSQLiteObject+EFModel.m in Sources */,
+				58B83200A0D662514105584B /* NSError+EFException.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
