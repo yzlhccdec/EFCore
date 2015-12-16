@@ -10,23 +10,7 @@
 
 #define FieldName(property) [[@(#property) componentsSeparatedByString: @"."] lastObject]
 
-@protocol EFSQLiteObject
-
-- (void)startModification;
-
-- (void)endModification;
-
-+ (NSSet *)excludedFields;
-
-+ (NSArray *)fieldsForPersistence;
-
-+ (NSArray *)primaryKey;
-
-+ (NSString *)tableName;
-
-@end
-
-@interface EFSQLiteObject : NSObject <EFSQLiteObject>
+@interface EFSQLiteObject : NSObject
 
 @property(nonatomic, readonly) NSArray *changedFields;
 
@@ -44,4 +28,5 @@
 + (NSArray *)primaryKey;
 
 + (NSString *)tableName;
+
 @end
