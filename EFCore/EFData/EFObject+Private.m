@@ -7,6 +7,7 @@
 #import "EFObject+Private.h"
 #import "EXTRuntimeExtensions.h"
 #import "EXTScope.h"
+#import "EFRuntime.h"
 
 @implementation EFObject (Private)
 
@@ -35,6 +36,28 @@
     } else {
         return YES;
     }
+}
+
+- (BOOL)__valitedateAndSetValue:(id)value forKey:(NSString *)key ignoreFieldNotExist:(BOOL)ignoreFieldNotExist ignoreInvalidValue:(BOOL)ignoreInvalidValue error:(NSError **)pError {
+    __autoreleasing id validatedValue = value;
+
+    if (![[self class] isStorageProperty:key]) {
+        return ignoreFieldNotExist;
+    }
+
+    if (![self validateValue:&validatedValue forKey:key error:pError]) {
+        NSException *ex = [[NSException alloc] initWithName:@"Invalid value" reason:[NSString stringWithFormat:@"%@ ,invalid value for setting key \"%@\" : %@", NSStringFromClass([self class]), key, value] userInfo:nil];
+#if DEBUG
+        // Fail fast in Debug builds.
+        DLog(@"%@ *** Caught invalid value for setting key \"%@\" : %@", NSStringFromClass([self class]), key, value);
+        [ex raise];
+#else
+        *pError = [NSError ef_objectErrorWithException:ex];
+        return ignoreInvalidValue;
+#endif
+    }
+
+    [self setValue:validatedValue forKey:key];
 }
 
 @end
