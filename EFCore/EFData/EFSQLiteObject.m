@@ -67,41 +67,53 @@
 
 + (NSArray *)fieldsForPersistence
 {
-    if (self == [EFSQLiteObject class]) {
-        return nil;
-    }
-
     NSArray *cachedFields = objc_getAssociatedObject(self, _cmd);
     if (cachedFields != nil) {
         return cachedFields;
     }
 
-    NSMutableArray *fields      = [[[self superclass] fieldsForPersistence] mutableCopy];
-
-    if (!fields) {
-        fields = [NSMutableArray array];
-    }
-
-    unsigned int    count;
-    objc_property_t *properties = class_copyPropertyList(self, &count);
-
-    NSSet               *excludedProperties = [self excludedFields];
     NSMutableDictionary *propertyIndex      = [[NSMutableDictionary alloc] init];
 
-    for (int i = 0; i < count; i++) {
-        EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(properties[i])) andValue:@(property_getAttributes(properties[i]))];
+    [self __enumeratePropertiesUsingBlock:^(objc_property_t property, BOOL *stop) {
+        EFKeyValuePair *pair = [[EFKeyValuePair alloc] initWithKey:@(property_getName(property)) andValue:@(property_getAttributes(property))];
         if ([self __isStorageProperty:pair.key]) {
             propertyIndex[pair.key] = pair;
         }
-    }
+    }];
 
-    [propertyIndex removeObjectsForKeys:excludedProperties.allObjects];
-    free(properties);
+    [propertyIndex removeObjectsForKeys:[self excludedFields].allObjects];
 
-    [fields addObjectsFromArray:propertyIndex.allValues];
+    NSArray *fields = [propertyIndex allValues];
     objc_setAssociatedObject(self, _cmd, fields, OBJC_ASSOCIATION_COPY);
 
     return fields;
+}
+
++ (void)__enumeratePropertiesUsingBlock:(void (^)(objc_property_t property, BOOL *stop))block
+{
+    Class cls  = self;
+    BOOL  stop = NO;
+
+    while (!stop && ![cls isEqual:EFSQLiteObject.class]) {
+        unsigned        count       = 0;
+        objc_property_t *properties = class_copyPropertyList(cls, &count);
+
+        cls = cls.superclass;
+        if (properties == NULL) {
+            continue;
+        }
+
+        @onExit{
+            free(properties);
+        };
+
+        for (unsigned i = 0; i < count; i++) {
+            block(properties[i], &stop);
+            if (stop) {
+                break;
+            }
+        }
+    }
 }
 
 + (BOOL)__isStorageProperty:(NSString *)propertyKey
