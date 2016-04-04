@@ -9,125 +9,63 @@
 
 @implementation UIImage (Edit)
 
-//截取部分图像
-- (UIImage *)croppedImage:(CGRect)bounds {
-    CGFloat screenScale = [UIScreen mainScreen].scale;
-    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, CGRectMake(bounds.origin.x*screenScale,bounds.origin.y*screenScale,bounds.size.width*screenScale, bounds.size.height*screenScale));
-    CGRect smallBounds = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
+- (UIImage *)scaleToSize:(CGSize)size scaleMode:(CCImageScaleMode)scaleMode
+{
+    CALayer *layer = [[CALayer alloc] init];
+    layer.contentsScale = self.scale;
+    layer.contents      = (id) self.CGImage;
 
-    UIGraphicsBeginImageContextWithOptions(bounds.size,NO,0);
+    CGFloat width  = ceilf(size.width >= 1.f ? size.width : size.width == 0 ? size.height * self.size.width / self.size.height : self.size.width * size.width);
+    CGFloat height = ceilf(size.height >= 1.f ? size.height : size.height == 0 ? size.width * self.size.height / self.size.width : self.size.height * size.height);
+    layer.frame = CGRectMake(0, 0, width, height);
+
+    switch (scaleMode) {
+        case CCImageScaleModeSize: {
+            layer.contentsGravity = kCAGravityResize;
+            break;
+        }
+        case CCImageScaleModeAspectFill: {
+            layer.contentsGravity = kCAGravityResizeAspectFill;
+            break;
+        }
+        case CCImageScaleModeAspectFit: {
+            layer.contentsGravity = kCAGravityResizeAspect;
+            break;
+        }
+    }
+
+    UIGraphicsBeginImageContextWithOptions(layer.bounds.size, NO, 0.f);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextDrawImage(context, smallBounds, subImageRef);
-    UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
+    [layer renderInContext:context];
+    UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
-    CGImageRelease(subImageRef);
-    return smallImage;
+    return screenShot;
 }
 
-//等比例缩放(长宽按最小比例缩放)
-- (UIImage *)scaleToSize:(CGSize)size {
-    CGFloat width = CGImageGetWidth(self.CGImage);
-    CGFloat height = CGImageGetHeight(self.CGImage);
+//截取部分图像
+- (UIImage *)croppedImage:(CGRect)bounds
+{
+    CALayer *layer = [[CALayer alloc] init];
+    layer.frame           = bounds;
+    layer.contentsScale   = self.scale;
+    layer.contents        = (id) self.CGImage;
+    layer.contentsGravity = kCAGravityCenter;
 
-    float verticalRadio = size.height * 1.0 / height;
-    float horizontalRadio = size.width * 1.0 / width;
+    UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0.f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
 
-    float radio = verticalRadio > horizontalRadio ? horizontalRadio : verticalRadio;
+    CGContextConcatCTM(context, CGAffineTransformMakeTranslation(-bounds.origin.x, -bounds.origin.y));
+    [layer renderInContext:context];
 
-    width = width * radio;
-    height = height * radio;
-
-    int xPos = (size.width - width) / 2;
-    int yPos = (size.height - height) / 2;
-
-    // 创建一个bitmap的context
-    // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContextWithOptions(size,NO,0);
-
-    // 绘制改变大小的图片
-    [self drawInRect:CGRectMake(xPos, yPos, width, height)];
-
-    // 从当前context中创建一个改变大小后的图片
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-
-    // 使当前的context出堆栈
+    UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
-    // 返回新的改变大小后的图片
-    return scaledImage;
+    return screenShot;
 }
 
-//裁剪成矩形后缩放
-- (UIImage *)scaleToAspectFillSize:(CGSize)size {
-    CGFloat width = CGImageGetWidth(self.CGImage);
-    CGFloat height = CGImageGetHeight(self.CGImage);
-
-    float verticalRadio = size.height * 1.0 / height;
-    float horizontalRadio = size.width * 1.0 / width;
-
-    float radio = verticalRadio < horizontalRadio ? horizontalRadio : verticalRadio;
-
-    float subWidth = width * radio;
-    float subHeight = height * radio;
-
-    int xPos = (subWidth - size.width) / radio / 2;
-    int yPos = (subHeight - size.height) / radio / 2;
-    //先裁剪
-    UIImage *img = [self croppedImage:CGRectMake(xPos, yPos, width, height)];
-
-    UIGraphicsBeginImageContextWithOptions(size,NO,0);
-    //再scale
-    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *targetImage = UIGraphicsGetImageFromCurrentImageContext();
-
-    UIGraphicsEndImageContext();
-
-    return targetImage;
-
-}
-
-//按宽度等比例缩放
-- (UIImage *)scaleToFillWidth:(CGFloat)width {
-    float imageWidth = self.size.width;
-    float imageHeight = self.size.height;
-
-    float widthScale = imageWidth / width;
-
-    // 创建一个bitmap的context
-    // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, imageHeight / widthScale),NO,0);
-
-    [self drawInRect:CGRectMake(0, 0, width, imageHeight / widthScale)];
-
-    // 从当前context中创建一个改变大小后的图片
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    // 使当前的context出堆栈
-    UIGraphicsEndImageContext();
-
-    return newImage;
-}
-
-//等比例缩放
-- (UIImage *)scaleWithRatio:(CGFloat)ratio {
-    float imageWidth = self.size.width * ratio;
-    float imageHeight = self.size.height * ratio;
-
-    // 创建一个bitmap的context
-    // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageWidth, imageHeight),NO,0);
-
-    [self drawInRect:CGRectMake(0, 0, imageWidth, imageHeight)];
-
-    // 从当前context中创建一个改变大小后的图片
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    // 使当前的context出堆栈
-    UIGraphicsEndImageContext();
-
-    return newImage;
-}
-
-- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode
+{
     //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     [tintColor setFill];
@@ -141,14 +79,16 @@
     return tintedImage;
 }
 
-- (UIColor *)averageColor {
+- (UIColor *)averageColor
+{
     return [self averageColorForRect:(CGRect) {CGPointZero, self.size}];
 }
 
-- (UIColor *)averageColorForRect:(CGRect)rect {
+- (UIColor *)averageColorForRect:(CGRect)rect
+{
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    unsigned char rgba[4];
-    CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    unsigned char   rgba[4];
+    CGContextRef    context    = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
 
     CGImageRef image = CGImageCreateWithImageInRect(self.CGImage, rect);
     CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), image);
@@ -157,7 +97,7 @@
     CGImageRelease(image);
 
     if (rgba[3] > 0) {
-        CGFloat alpha = ((CGFloat) rgba[3]) / 255.0;
+        CGFloat alpha      = ((CGFloat) rgba[3]) / 255.0;
         CGFloat multiplier = alpha / 255.0;
         return [UIColor colorWithRed:((CGFloat) rgba[0]) * multiplier
                                green:((CGFloat) rgba[1]) * multiplier
