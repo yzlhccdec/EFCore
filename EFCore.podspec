@@ -129,5 +129,8 @@ Pod::Spec.new do |s|
   # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
   s.dependency 'FMDB/SQLCipher'
   s.dependency 'libextobjc'
+  
+  s.ios.deployment_target = '6.0'
+  s.watchos.deployment_target = '2.0'
 
 end
