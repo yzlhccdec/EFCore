@@ -28,7 +28,7 @@
     }
 
     NSString *URLString = [[NSString alloc] initWithFormat:@"%@%@%@=%@", [self absoluteString],
-                                                           [self query] ? @"&" : @"?", [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                                                           [self query] ? @"&" : @"?", [key stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]], [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
 
     return [NSURL URLWithString:URLString];
 }
@@ -44,7 +44,7 @@
         id value = params[key];
         if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {
             NSString *valueStr = [value isKindOfClass:[NSString class]] ? value : [value stringValue];
-            [queryString appendFormat:@"%@=%@&", [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [valueStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [queryString appendFormat:@"%@=%@&", [key stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]], [valueStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         } else {
             NSLog(@"warning! illegal data type for %@, expect NSString or NSNumber", key);
         }
