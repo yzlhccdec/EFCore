@@ -7,6 +7,7 @@
 #import <objc/runtime.h>
 #import "EFRuntime.h"
 #import "EFImageCache.h"
+#import "pthread.h"
 
 typedef enum MethodImplementationType {
     MethodNotFound = 0, // method not found
@@ -52,4 +53,32 @@ UIImage *cachedImage(NSString *imageName, ImageDrawingBlock block)
     }
 
     return image;
+}
+
+void DebugLog(BOOL detailedOutput, const char *file, int lineNumber, const char *funcName, NSString *format,...) {
+    va_list ap;
+
+    va_start (ap, format);
+    if (![format hasSuffix: @"\n"]) {
+        format = [format stringByAppendingString: @"\n"];
+    }
+    NSString *body =  [[NSString alloc] initWithFormat:format arguments:ap];
+    va_end (ap);
+    NSString *fileName = [@(file) lastPathComponent];
+
+    mach_port_t machTID = pthread_mach_thread_np(pthread_self());
+    char threadIdString[9];
+    snprintf(threadIdString, 9, "%x", machTID);
+
+    char *isMainThread = [[NSThread currentThread] isMainThread] ? "(main)" : "";
+    if (detailedOutput) {
+        fprintf(stderr,"%s/%s (%s:%d) %s",threadIdString, funcName, [fileName UTF8String], lineNumber, [body UTF8String]);
+    } else {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+        [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+        NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+
+        fprintf(stderr,"%s [%s:%d] [thread:%s%s] %s",[dateString UTF8String], [fileName UTF8String],lineNumber, threadIdString, isMainThread, [body UTF8String]);
+    }
 }
