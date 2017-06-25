@@ -7,17 +7,17 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef DLog
 #ifdef DEBUG
-#   define DLog(fmt, ...) NSLog((@" %s [L:%d T:%@]" fmt), __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread], ##__VA_ARGS__);
+#define DLog(args...) DebugLog(NO,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+#define DDLog(args...) DebugLog(YES,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
 #else
-#   define DLog(...)
-#endif
+#define DLog(args...);
+#define DDLog(args...);
 #endif
 
-#ifndef ALog
-#define ALog(fmt, ...) NSLog((@" %s [L:%d T:%@]" fmt), __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread], ##__VA_ARGS__);
-#endif
+// ALog and ADLog always displays output regardless of the DEBUG setting
+#define ALog(args...) DebugLog(NO,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+#define ADLog(args...) DebugLog(YES,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
 
 #ifndef ULog
 #ifdef DEBUG
@@ -36,3 +36,4 @@
 typedef UIImage* (^ImageDrawingBlock)();
 
 UIImage* cachedImage(NSString *imageName, ImageDrawingBlock block);
+void DebugLog(BOOL detailedOutput, const char *file, int lineNumber, const char *funcName, NSString *format,...);
